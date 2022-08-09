@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+
+    {% block content %}
+    
+ 
+    <br>
+    <div class="container">
+        <h2>Log in to your account.</h2>
+        <div style="width:60%">  
+    <form method="post" action="{% url 'users:login' %}" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <center>
+    <button name="submit" class="btn btn-outline-primary">Log in</button>
+    {% endbuttons %}
+    <input type="hidden" name="next" 
+    value="{% url 'blog:blog' %}" />
+    </form>
+        </div></center>
+    </div>
+    {% endblock  %}

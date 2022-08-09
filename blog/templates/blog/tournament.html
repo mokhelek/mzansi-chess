@@ -1,0 +1,53 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+
+<style>
+    .wrap{
+        height: 400px;
+        overflow: hidden;
+    }
+    .wrap img {
+        position: relative;
+        left: 50%;
+        top: 50%;
+    
+        -webkit-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
+     }
+</style>
+
+<br>
+<div class="container-fluid" style="width: 98%;">
+    <div class="row">
+
+        <div class="col-lg-9">
+            <div class="card">
+                
+                <div class="wrap">
+                    <img class="card-img-top" src="{{tournament.thumbnail_t.url}}">
+                </div>
+                <div class="card-body">
+                    <h3>{{tournament.name}}</h3>
+                    <h5>{{tournament.description.html|safe}}</h5>
+                </div>
+             
+            </div>
+        </div>
+        
+        <div class="col-lg-3">
+            {% for i in other_tournaments %}
+                <div class="card card-body" style="margin-bottom: 0.3cm;">
+                <h5>  {{i.name}}</h5> 
+                <a href="{% url 'blog:tournament_details' i.id %}">view</a>
+                </div>
+            {% endfor %}      
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}

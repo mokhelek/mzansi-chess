@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mzansi Chess</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog_style.css' %}"/>
+    
+</head>
+{% url 'blog:blog' as blog_path %}
+{% url 'blog:ratings' as ratings_path %}
+{% url 'blog:tournaments' as tournaments_path %}
+
+<nav class="navbar navbar-expand-lg navbar-light  sticky-top" style="background-color: #FFF; box-shadow:0 0 3px #abc6eb; ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'blog:blog' %}">
+        <img style="width: 120px;" src="{% static 'MzansiChess-logos__transparent.png' %}">    
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+          {% if request.path == blog_path %}
+          <li class="nav-item">
+            
+            <a style="font-weight: 600;color:#1E2A3B;font-size: 1.2rem;" class="nav-link" aria-current="page" href="{% url 'blog:blog' %}">
+                Home </a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a style="font-size: 1.2rem;color:#1E2A3B"  class="nav-link" aria-current="page" href="{% url 'blog:blog' %}">Home</a>
+          </li>
+          {% endif %}
+  
+          {% if request.path == ratings_path %}
+          <li class="nav-item">
+            <Blog style="font-weight: 600;color:#1E2A3B;font-size: 1.2rem;" class="nav-link" aria-current="page" href="{% url 'blog:ratings' %}">Ratings</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a style="font-size: 1.2rem;color:#1E2A3B" class="nav-link" aria-current="page" href="{% url 'blog:ratings' %}">Ratings</a>
+          </li>
+          {% endif %}
+  
+          {% if request.path == tournaments_path %}
+          <li class="nav-item">
+            <a style="font-size: 1.2rem;color:#1E2A3B;font-weight: 600"  class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a style="font-size: 1.2rem;color:#1E2A3B;"  class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
+          </li>
+          {% endif %}
+
+          <li class="nav-item">
+            <a style="font-size: 1.2rem;color:#1E2A3B"  class="nav-link" href="#">Resources</a>
+          </li>
+          
+        </ul>
+        
+      
+          &nbsp;&nbsp;&nbsp;
+          {% if user.is_anonymous %}
+            <div class="d-flex">
+                Login/Register
+            </div>
+
+         {% else %}  
+            <div class="d-flex">
+                Mokhele
+            </div> 
+         {% endif %}
+
+      </div>
+    
+    </div>
+  </nav>
+
+<body style="font-family:monospace;">
+    {% block content %}
+
+    {% endblock content %}
+
+
+
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
