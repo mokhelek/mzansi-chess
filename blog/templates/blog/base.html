@@ -147,11 +147,67 @@
 
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Colored with scrolling</h5>
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel"> <strong>  Menu </strong></h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <p>Try scrolling the rest of the page to see this option in action.</p>
+         
+    <ul class="navbar-nav ml-auto">
+      {% if request.path == blog_path %}
+      <li class="nav-item border-bottom border-2 border-warning">
+        <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:blog' %}">Home</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a style="color: rgb(62, 62, 62);font-size: larger;font-weight: 500;" class="nav-link" href="{% url 'blog:blog' %}">Home</a>
+      </li>
+      {% endif %}
+  
+      {% if request.path == ratings_path %}
+      <li class="nav-item  border-bottom border-2 border-warning">
+      <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:ratings' %}">Ratings</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a  style="color: rgb(62, 62, 62);font-size: larger;font-weight: 500;" class="nav-link" href="{% url 'blog:ratings' %}">Ratings</a>
+      </li>
+      {% endif %}
+  
+      {% if request.path == tournaments_path %}
+      <li class="nav-item border-bottom border-2 border-warning">
+      <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a  style="color: rgb(62, 62, 62);font-size: larger;font-weight: 500;" class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
+        </li>
+        {% endif %}
+      <li class="nav-item">
+      <a  style="color: rgb(62, 62, 62);font-size: larger;font-weight: 500;" class="nav-link" href="#">Resources</a>
+      </li>
+      
+      <li class="nav-item">
+        {% if user.is_anonymous %}
+        <div class="d-flex">
+          <a href="{% url 'users:login' %}" class="nav-link"> <button class=" btn btn-sm" style="background-color:#2162fa;border-radius: 10px;color: white;font-size:0.8rem;border: 1px rgb(7, 2, 255) solid ">Login</button></a>
+        </div>
+  
+     {% else %}  
+        <div class="d-flex">
+        <a href="{% url 'users:logout' %}" class="nav-link"> 
+          <button class=" btn btn-sm" style="background-color:#b3b1b1;border-radius: 10px;color: white;border: 1px rgb(71, 71, 71) solid;font-size:0.8rem ;">Logout</button>
+        </a>
+        </div> 
+     {% endif %}
+  
+        </li>
+      
+    </ul>
+  
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <span class="search-icon"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path></svg></span>
+    </form>
   </div>
 </div>
 
