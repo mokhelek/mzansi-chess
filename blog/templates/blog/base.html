@@ -29,92 +29,133 @@
 
 
 <!-- Begin Nav
-================================================== -->
-<nav class="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation" style="box-shadow: 0 0 2px rgb(172, 172, 247);">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="container">
-    <!-- Begin Logo -->
- 
+================================================== 
+<nav class="navbar navbar-dark sticky-top" style="background-color:#051622;  height: 2cm;">  
+ <nav class="navbar navbar-toggleable-md navbar-light bg-white fixed-top " style="box-shadow: 0 0 2px rgb(172, 172, 247);">
 
-    <a class="navbar-brand d-flex" href="{% url 'blog:blog' %}" style="font-weight: 700;">
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"  style= "width: 8.5cm;background-color:#051622;" aria-labelledby="offcanvasNavbarLabel">
+-->
+
+
+<style>
+  
+  @media screen  and (min-width:450px){
+    #logo{
+      margin-left: 0.4cm;
+    }
+  }
+</style>
+
+ 
+<nav class="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation" style="box-shadow: 0 0 2px rgb(172, 172, 247);">
+
+   
+
+  <div style="color:  rgb(251, 143, 1);" class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+  
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+    </svg> 
+  
+  </div>
+  
+    
+  <a id="logo"  class="navbar-brand d-flex" href="{% url 'blog:blog' %}" style="margin-left: 0.5cm;">
     <img  src="{% static 'img/logo.png' %}" alt="logo"><h5> <strong>Mzansi </strong> </h6><h5 style="color: #f97f00"><strong>Chess</strong> </h5>
     </a>
     
   
-    <!-- End Logo -->
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <!-- Begin Menu -->
-      <ul class="navbar-nav ml-auto">
-        {% if request.path == blog_path %}
-        <li class="nav-item border-bottom border-2 border-warning">
-          <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:blog' %}">Home</a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'blog:blog' %}">Home</a>
+  <div class="container">  
+  
+ 
+  
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+         
+    <ul class="navbar-nav ml-auto">
+      {% if request.path == blog_path %}
+      <li class="nav-item border-bottom border-2 border-warning">
+        <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:blog' %}">Home</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:blog' %}">Home</a>
+      </li>
+      {% endif %}
+  
+      {% if request.path == ratings_path %}
+      <li class="nav-item  border-bottom border-2 border-warning">
+      <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:ratings' %}">Ratings</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:ratings' %}">Ratings</a>
+      </li>
+      {% endif %}
+  
+      {% if request.path == tournaments_path %}
+      <li class="nav-item border-bottom border-2 border-warning">
+      <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
         </li>
         {% endif %}
-
-        {% if request.path == ratings_path %}
-        <li class="nav-item  border-bottom border-2 border-warning">
-        <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:ratings' %}">Ratings</a>
+      <li class="nav-item">
+      <a class="nav-link" href="#">Resources</a>
+      </li>
+      
+      <li class="nav-item">
+        {% if user.is_anonymous %}
+        <div class="d-flex">
+          <a href="{% url 'users:login' %}" class="nav-link"> <button class=" btn btn-sm" style="background-color:#2162fa;border-radius: 10px;color: white;font-size:0.8rem;border: 1px rgb(7, 2, 255) solid ">Login</button></a>
+        </div>
+  
+     {% else %}  
+        <div class="d-flex">
+        <a href="{% url 'users:logout' %}" class="nav-link"> 
+          <button class=" btn btn-sm" style="background-color:#b3b1b1;border-radius: 10px;color: white;border: 1px rgb(71, 71, 71) solid;font-size:0.8rem ;">Logout</button>
+        </a>
+        </div> 
+     {% endif %}
+  
         </li>
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'blog:ratings' %}">Ratings</a>
-        </li>
-        {% endif %}
-
-        {% if request.path == tournaments_path %}
-        <li class="nav-item border-bottom border-2 border-warning">
-        <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
-          </li>
-          {% endif %}
-        <li class="nav-item">
-        <a class="nav-link" href="#">Resources</a>
-        </li>
-        
-        <li class="nav-item">
-          {% if user.is_anonymous %}
-          <div class="d-flex">
-            <a href="{% url 'users:login' %}" class="nav-link"> <button class=" btn btn-sm" style="background-color:#2162fa;border-radius: 10px;color: white;font-size:0.8rem;border: 1px rgb(7, 2, 255) solid ">Login</button></a>
-          </div>
-
-       {% else %}  
-          <div class="d-flex">
-          <a href="{% url 'users:logout' %}" class="nav-link"> 
-            <button class=" btn btn-sm" style="background-color:#b3b1b1;border-radius: 10px;color: white;border: 1px rgb(71, 71, 71) solid;font-size:0.8rem ;">Logout</button>
-          </a>
-          </div> 
-       {% endif %}
-
-          </li>
-
-<!--<a class="nav-link btn btn-primary btn-sm" style="color: blue;" href="#">user</a>-->
-        
-      </ul>
-      <!-- End Menu -->
-      <!-- Begin Search -->
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <span class="search-icon"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path></svg></span>
-      </form>
-      <!-- End Search -->
-    </div>
+  
+  
+      
+    </ul>
+  
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <span class="search-icon"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path></svg></span>
+    </form>
+  
   </div>
-  </nav>
-  <!-- End Nav
-  ================================================== -->
-
+  
+     
+  </div>
+     
+  </nav> 
 
 
 <body>
+
+  
+  
+
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Colored with scrolling</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Try scrolling the rest of the page to see this option in action.</p>
+  </div>
+</div>
+
+
     {% block content %}
 
     {% endblock content %}
@@ -138,6 +179,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 
 
 
@@ -212,4 +257,102 @@
     
     </div>
   </nav>
+  -->
+
+
+
+  <!--
+
+
+    <nav class="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation" style="box-shadow: 0 0 2px rgb(172, 172, 247);">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="container">
+  
+ 
+
+    <a class="navbar-brand d-flex" href="{% url 'blog:blog' %}" style="font-weight: 700;">
+      <img  src="{% static 'img/logo.png' %}" alt="logo"><h5> <strong>Mzansi </strong> </h6><h5 style="color: #f97f00"><strong>Chess</strong> </h5>
+      </a>
+      
+    
+  
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+       
+        <ul class="navbar-nav ml-auto">
+          {% if request.path == blog_path %}
+          <li class="nav-item border-bottom border-2 border-warning">
+            <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:blog' %}">Home</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog:blog' %}">Home</a>
+          </li>
+          {% endif %}
+  
+          {% if request.path == ratings_path %}
+          <li class="nav-item  border-bottom border-2 border-warning">
+          <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:ratings' %}">Ratings</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog:ratings' %}">Ratings</a>
+          </li>
+          {% endif %}
+  
+          {% if request.path == tournaments_path %}
+          <li class="nav-item border-bottom border-2 border-warning">
+          <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
+            </li>
+            {% endif %}
+          <li class="nav-item">
+          <a class="nav-link" href="#">Resources</a>
+          </li>
+          
+          <li class="nav-item">
+            {% if user.is_anonymous %}
+            <div class="d-flex">
+              <a href="{% url 'users:login' %}" class="nav-link"> <button class=" btn btn-sm" style="background-color:#2162fa;border-radius: 10px;color: white;font-size:0.8rem;border: 1px rgb(7, 2, 255) solid ">Login</button></a>
+            </div>
+  
+         {% else %}  
+            <div class="d-flex">
+            <a href="{% url 'users:logout' %}" class="nav-link"> 
+              <button class=" btn btn-sm" style="background-color:#b3b1b1;border-radius: 10px;color: white;border: 1px rgb(71, 71, 71) solid;font-size:0.8rem ;">Logout</button>
+            </a>
+            </div> 
+         {% endif %}
+  
+            </li>
+  
+ 
+          
+        </ul>
+      
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <span class="search-icon"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path></svg></span>
+        </form>
+      
+      </div>
+    </div>
+    </nav>
+  -->
+
+
+
+
+
+  <!-- ========================== NAV 2 ==================================================  -->
+  <!--
+
+
+
+
   -->

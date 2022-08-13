@@ -53,9 +53,35 @@
 
 
 
+
+
+<style>
+
+@media screen and (max-width:450px) {
+        #screensize{
+            width: 100%;
+        }
+    }
+	@media screen and (min-width:451px) {
+        #screensize{
+            width: 90%;
+        }
+    }
+
+
+</style>
+
+
+
+
+
+
+
+
 <!-- Begin Site Title
 ================================================== -->
-<div class="container-fluid" style="width: 90%;">
+<div id="screensize" class="container-fluid" >
+	
 	<div class="mainheading">
 		<img height="60"  src="static/logos/l1-trans.png"><h1 class="sitetitle">Think Chess!</h1>
 
@@ -101,7 +127,7 @@
 									<div class="wrapfooter">
 										
 										<span class="author-meta">
-										<span class="post-name"><a href="author.html">@Mzansi_Chess</a></span><br/>
+										<span class="post-name"><a href="#">@Mzansi_Chess</a></span><br/>
 										<span class="post-date">{{article.date_posted|date:"d M Y"}}</span>  <span class="dot"></span><span class="post-read">{{article.body.html|readtime}}</span>
 										</span>
 										<span class="post-read-more"><a href="#" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
@@ -155,7 +181,7 @@
 		<div class="row">
 			{% for article in articles %}
 			<div class="col-md-4">  
-				<div class="card" style="background-color: rgb(237, 242, 255);margin-bottom: 0.1cm;">
+				<div class="card" style="background-color: rgb(237, 242, 255);margin-bottom: 0.3cm;">
 					
 						<div  class="thumbnail-wrapper"> 
 							
@@ -177,7 +203,7 @@
 							<div class="wrapfooter">
 								
 								<span class="author-meta">
-								<span class="post-name"><a href="author.html">@Mzansi_Chess</a></span><br/>
+								<span class="post-name"><a href="#">@Mzansi_Chess</a></span><br/>
 								<span class="post-date">{{article.date_posted|date:"d M Y"}}</span><span class="dot"></span><span class="post-read">{{article.body.html|readtime}}</span>
 								</span>
 								<span class="post-read-more"><a href="#" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>

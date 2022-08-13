@@ -9,12 +9,12 @@ def blog(request):
     articles = Articles.objects.all().order_by("-date_posted")
     tournaments = Tournaments.objects.all()[:3:-1]
 
-    paginator = Paginator(articles, 3) 
+    paginator = Paginator(articles, 6) 
    
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
-    featured_article = Articles.objects.filter(featured_article=True)
+    featured_article = Articles.objects.filter(featured_article=True)[:2:-1]
     
     context = {"articles":page_obj,"tournaments":tournaments,"featured_article":featured_article}
     
