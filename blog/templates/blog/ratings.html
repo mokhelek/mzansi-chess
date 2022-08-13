@@ -2,138 +2,143 @@
 
 
 {% block content %}
+
 <br>
 <div class="container-fluid" style="width: 95%;">    
 <h3 style="margin-bottom: 0cm;">Ratings</h3>
-<h5 style="color: rgb(74, 74, 74);margin-top: 0cm;"> The following rating information of players is from the official FIDE <a href="https://fide.com">website</a>.</h5>
+<h5 style="color: rgb(74, 74, 74);margin-top: 0.2cm;"> The following rating information of players is from the official FIDE <a href="https://fide.com">website</a>.</h5>
 <h6 style="font-style:oblique;color:rgb(123, 122, 122);font-size: 0.9rem;">last updated 10 August 2022 </h6>
 <br>
 
+
 <h5 style="font-weight: 600;">South Africa's Top 10 </h5>  
-<div class="col-lg-7 col-sm-12 col-12">  
-<div class="row">
-    <div class="col-1">
-        <h6 style="font-weight: 600;font-size: 0.9rem;"> No.</h6>
-    </div>  
+<div class="col-12 col-lg-10">  
+    <div class="row">
+        <div class="col-1">
+            <h6 style="font-weight: 600;font-size: 0.9rem;"> No.</h6>
+        </div>  
 
-    <div class="col-2">
-        <h6 style="font-weight: 600;font-size: 0.9rem;" >Title</h6>
-    </div>  
+        <div class="col-2">
+            <h6 style="font-weight: 600;font-size: 0.9rem;" >Title</h6>
+        </div>  
 
-    <div class="col-5 col-sm-3">
-        <h6 style="font-weight: 600;font-size: 0.9rem;">Name</h6>
-    </div>  
+        <div class="col-5 col-sm-3">
+            <h6 style="font-weight: 600;font-size: 0.9rem;">Name</h6>
+        </div>  
 
-    <div class="col-2" >
-        <h6 style="font-weight: 600;font-size: 0.9rem;">Rating</h6>
-    </div>  
+        <div class="col-2" >
+            <h6 style="font-weight: 600;font-size: 0.9rem;">Rating</h6>
+        </div>  
 
-    <div class="col-2">
-        <h6 style="font-weight: 600;font-size: 0.9rem;">Age</h6>
-    </div> 
+        <div class="col-1">
+            <h6 style="font-weight: 600;font-size: 0.9rem;">Age</h6>
+        </div> 
+    </div>
+    {% for i in player_info %}
+
+    {% if i.position|divisibleby:2 %}
+
+
+    <div class="row" >
+        {% else %}
+        <div class="row" style="background-color: #82B2FA;" >
+    {% endif %}
+
+        <div class="col-1">
+            {{i.position}}
+        </div>  
+
+        <div class="col-2">
+            {{i.player_title}}
+        </div>  
+
+        <div class="col-5 col-sm-3">
+            {{i.player_name}}
+        </div>  
+
+        <div class="col-2">
+            {{i.player_rating}}
+        </div>  
+
+
+        <div class="col-1">
+            {{i.age}}
+        </div>  
+
+        
+        
+    </div>
+    {% endfor %}
+    </div>
+    <br>
+    <br>
+    <!-- #################################### World Ratings ###########################################-->
+
+    <h5 style="font-weight: 600;">Worlds's Top 10 </h5>  
+    <div class="col-12 col-lg-10">  
+    <div class="row">
+        <div class="col-1">
+            <h6 style="font-weight: 600;font-size: 0.9rem;"> No.</h6>
+        </div>  
+
+        <div class="col-2">
+            <h6 style="font-weight: 600;font-size: 0.9rem;" >Title</h6>
+        </div>  
+
+        <div class="col-5 col-sm-3">
+            <h6 style="font-weight: 600;font-size: 0.9rem;">Name</h6>
+        </div>  
+
+        <div class="col-2" >
+            <h6 style="font-weight: 600;font-size: 0.9rem;">Rating</h6>
+        </div>  
+
+        <div class="col-1">
+            <h6 style="font-weight: 600;font-size: 0.9rem;">Age</h6>
+        </div> 
+    </div>
+    {% for i in player_info_world %}
+
+    {% if i.position|divisibleby:2 %}
+
+
+    <div class="row" >
+        {% else %}
+        <div class="row" style="background-color: #f7b56a;" >
+    {% endif %}
+
+        <div class="col-1">
+            {{i.position}}
+        </div>  
+
+        <div class="col-2">
+            {{i.player_title}}
+        </div>  
+
+        <div class="col-5 col-sm-3">
+            {{i.player_name}}
+        </div>  
+
+        <div class="col-2">
+            {{i.player_rating}}
+        </div>  
+
+
+        <div class="col-1">
+            {{i.age}}
+        </div>  
+
+        
+        
+    </div>
+    {% endfor %}
+    </div>
+    </div>
+
 </div>
-{% for i in player_info %}
-
-{% if i.position|divisibleby:2 %}
 
 
-<div class="row" >
-    {% else %}
-    <div class="row" style="background-color: #82B2FA;" >
-{% endif %}
 
-    <div class="col-1">
-        {{i.position}}
-    </div>  
-
-    <div class="col-2">
-        {{i.player_title}}
-    </div>  
-
-    <div class="col-5 col-sm-3">
-        {{i.player_name}}
-    </div>  
-
-    <div class="col-2">
-        {{i.player_rating}}
-    </div>  
-
-
-    <div class="col-2">
-        {{i.age}}
-    </div>  
-
-    
-    
-</div>
-{% endfor %}
-</div>
-<br>
-<br>
-<!-- #################################### World Ratings ###########################################-->
-
-<h5 style="font-weight: 600;">Worlds's Top 10 </h5>  
-<div class="col-lg-7 col-sm-12 col-12">  
-<div class="row">
-    <div class="col-1">
-        <h6 style="font-weight: 600;font-size: 0.9rem;"> No.</h6>
-    </div>  
-
-    <div class="col-2">
-        <h6 style="font-weight: 600;font-size: 0.9rem;" >Title</h6>
-    </div>  
-
-    <div class="col-5 col-sm-3">
-        <h6 style="font-weight: 600;font-size: 0.9rem;">Name</h6>
-    </div>  
-
-    <div class="col-2" >
-        <h6 style="font-weight: 600;font-size: 0.9rem;">Rating</h6>
-    </div>  
-
-    <div class="col-2">
-        <h6 style="font-weight: 600;font-size: 0.9rem;">Age</h6>
-    </div> 
-</div>
-{% for i in player_info_world %}
-
-{% if i.position|divisibleby:2 %}
-
-
-<div class="row" >
-    {% else %}
-    <div class="row" style="background-color: #f7b56a;" >
-{% endif %}
-
-    <div class="col-1">
-        {{i.position}}
-    </div>  
-
-    <div class="col-2">
-        {{i.player_title}}
-    </div>  
-
-    <div class="col-5 col-sm-3">
-        {{i.player_name}}
-    </div>  
-
-    <div class="col-2">
-        {{i.player_rating}}
-    </div>  
-
-
-    <div class="col-2">
-        {{i.age}}
-    </div>  
-
-    
-    
-</div>
-{% endfor %}
-</div>
-
-
-</div>
 {% endblock content %}
 
 

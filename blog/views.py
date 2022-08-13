@@ -13,8 +13,10 @@ def blog(request):
    
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-
-    context = {"articles":page_obj,"tournaments":tournaments}
+    
+    featured_article = Articles.objects.filter(featured_article=True)
+    
+    context = {"articles":page_obj,"tournaments":tournaments,"featured_article":featured_article}
     
     return render(request, "blog/articles_list.html", context)
 

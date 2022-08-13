@@ -19,12 +19,55 @@
      }
 </style>
 
+
+<style>
+    @media screen and (max-width:360px){
+        .wrap{
+            height: 150px;
+            overflow: hidden;
+        }
+        
+    }
+    @media screen and (min-width:361px){
+        .wrap{
+            height: 200px;
+            overflow: hidden;
+        }
+        
+    }
+    @media screen and (min-width:520px){
+        .wrap{
+            height: 300px;
+            overflow: hidden;
+        }
+        
+    }
+    @media screen and (min-width:860px){
+        .wrap{
+            height: 400px;
+            overflow: hidden;
+        }
+        
+    }
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
 <br>
 <div class="container-fluid" style="width: 98%;">
     <div class="row">
 
-        <div class="col-lg-9">
-            <div class="card">
+        <div class="col-lg-7">
+            <div class="card" style="margin-bottom: 0.4cm;">
                 
                 <div class="wrap">
                     <img class="card-img-top" src="{{tournament.thumbnail_t.url}}">
@@ -37,13 +80,29 @@
             </div>
         </div>
         
-        <div class="col-lg-3">
+        <div class="col-lg-5">
+            <h4>  
+             <strong>Other tournaments</strong>
+            </h4>
             {% for i in other_tournaments %}
-                <div class="card card-body" style="margin-bottom: 0.3cm;">
-                <h5>  {{i.name}}</h5> 
-                <a href="{% url 'blog:tournament_details' i.id %}">view</a>
+            <div class="card" style="margin-bottom:0.3cm">  
+            <div class="d-flex align-items-center">
+        
+                <img  height="100" width="100" src="{{tournament.thumbnail_t.url}}">
+        
+                <div class="pl-3">
+                    <h2 class="mb-2 h6 font-weight-bold">
+                    <a class="text-dark" href="{% url 'blog:tournament_details' tournament.id %}">{{i.name}}</a>
+                    </h2>
+                    <div class="card-text text-muted">
+                        <h6>  Starts {{i.starts}}, ends {{i.ends}}</h6>
+                    </div>
+                    <a style="margin-top: 0.1cm;" href="{% url 'blog:tournament_details' tournament.id %}"> view</a>
                 </div>
-            {% endfor %}      
+        
+            </div>
+        </div>
+            {% endfor %}    
         </div>
 
     </div>

@@ -34,6 +34,7 @@ class Articles(models.Model):
     #body = models.TextField()
     body = QuillField()
     date_posted = models.DateTimeField(auto_now=True)
+    featured_article = models.BooleanField(null=True,blank=True,default=False)
     class Meta:
         verbose_name_plural = "articles"
         
@@ -81,6 +82,8 @@ class Tournaments(models.Model):
     ends = models.CharField(max_length=100)
     
     date_posted = models.DateField(auto_now=True)
+    featured_tournament = models.BooleanField(null=True,blank=True,default=False)
+
     
     class Meta:
         verbose_name_plural = "tournaments"

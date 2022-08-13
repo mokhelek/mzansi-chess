@@ -3,22 +3,73 @@
 {% load bootstrap5 %}
 
     {% block content %}
-    
+    <style>
+        @media screen and (max-width:500px){
+            #login-form{
+                width: 100%;
+            }
+            #login-background{
+                width: 93%;
+            }
+        }
+
+        @media screen and (min-width:501px){
+            #login-form{
+                width: 100%;
+            }
+            #login-background{
+                width: 80%;
+            }
+        }
+
+
+
+        @media screen and (min-width:670px){
+            #login-form{
+                width: 90%;
+            }
+            #login-background{
+                width: 70%;
+            }
+        }
+
+        @media screen and (min-width:990px){
+            #login-form{
+                width: 70%;
+            }
+            #login-background{
+                width: 60%;
+            }
+        }
+
+    </style>
  
     <br>
-    <div class="container">
-        <h2>Log in to your account.</h2>
-        <div style="width:60%">  
-    <form method="post" action="{% url 'users:login' %}" class="form">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    {% buttons %}
-    <center>
-    <button name="submit" class="btn btn-outline-primary">Log in</button>
-    {% endbuttons %}
-    <input type="hidden" name="next" 
-    value="{% url 'blog:blog' %}" />
-    </form>
-        </div></center>
+
+    <div class="d-flex justify-content-center" >
+  
+        <div id="login-background" style="background-color:rgba(230, 239, 252, 0.653);box-shadow: 0 0 6px #bfbfbf;">
+            <div id="login-form" class="container-fluid">  
+                <br><br>
+            <h4 style="font-weight: 600;">Welcome to Mzansi Chess</h4>    
+            <form method="post" action="{% url 'users:login' %}" class="form">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                <div class="row">
+                    <button name="submit" class="btn btn-primary">continue</button>
+                    {% endbuttons %}
+                    <input type="hidden" name="next" 
+                    value="{% url 'blog:blog' %}" />
+                    
+                </div>
+            </form>
+            <div style="display: flex; margin-bottom: 3cm;">
+               <h6 style="color: #0512c6;font-weight: 600;">Don't have an account? </h6> &nbsp; <a href="{% url 'users:register' %}" class="btn btn-outline-primary btn-sm">Register</a>
+            </div>
+
+            </div>
+        </div>
+  
     </div>
-    {% endblock  %}
+{% endblock  %}

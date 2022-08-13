@@ -1,62 +1,40 @@
 {% extends 'blog/base.html' %}
+{% load static %}
+{% load bootstrap5 %}
 
 
 {% block content %}
 
-<style>
-    .tournament-thumbnail img {
-        position: relative;
-        left: 50%;
-        top: 50%;
+<div class="container">  
+<br>
+<div class="d-flex justify-content-center">  
     
-        -webkit-transform: translate(-50%,-50%);
-            -ms-transform: translate(-50%,-50%);
-                transform: translate(-50%,-50%);
-     }
-     @media screen and (max-width:450px) {
-        #title{
-            font-size: 1.1rem;
-        }
-         #date{
-             font-size: 0.9rem;
-         }
-     }
-
-</style>
-
-
-
-<div class="container-fluid" style="width:95% ;">
-    <br>
+<div class="col-md-7" >
+    <h4 style="color: rgb(54, 54, 54)"> <strong> Tournaments</strong> </h4>
+    <h5 style="color: rgb(105, 102, 102)"> Take Part In Upcoming Tournaments </h5> 
     {% for tournament in tournaments %}
-    <div class="col-12 col-md-8">
-        <div class="row">
+    <div class="card" style="margin-bottom:0.3cm">  
+    <div class="d-flex align-items-center">
 
-            <div class="card card-body" style="margin-bottom: 0.3cm;">
-                <div class="row">
-                    <div class="tournament-thumbnail col-3 col-sm-2">
-                        <img class="img-thumbnail" src="{{tournament.thumbnail_t.url}}">
-                    </div>
-                    <div class="col-9 col-sm-10">
-                        <h4 id="title" style="font-weight: 600;margin-bottom: 0.1cm;">{{tournament.name}}</h4>
-                            
-                        <h6 id="date" style="color: rgb(66, 66, 66);margin-bottom: 0cm;font-size: 1.09rem;"> taking place from {{tournament.starts}} to {{tournament.ends}}</h6>  
-                        <a style="margin-top: 0.1cm;" href="{% url 'blog:tournament_details' tournament.id %}"> view</a>
-                        
-                         
-                        <h6 style="color: gray;font-size: 0.9rem"> posted on {{tournament.date_posted|date:"d M Y"}}</h6>
-                        
-                    </div>
-                </div>
-               
+        <img  height="100" width="100" src="{{tournament.thumbnail_t.url}}">
 
+        <div class="pl-3">
+            <h2 class="mb-2 h6 font-weight-bold">
+            <a class="text-dark" href="{% url 'blog:tournament_details' tournament.id %}">{{tournament.name}}</a>
+            </h2>
+            <div class="card-text text-muted">
+                <h6>  Starts {{tournament.starts}}, ends {{tournament.ends}}</h6>
             </div>
+            <a style="margin-top: 0.1cm;" href="{% url 'blog:tournament_details' tournament.id %}"> view</a>
+        </div>
 
-         </div>
     </div>
-   
-
+</div>
     {% endfor %}
+
+</div>
+ </div>
 </div>
 
+ 
 {% endblock content %}
