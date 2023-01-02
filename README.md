@@ -1,12 +1,12 @@
 
 ## Mzansi Chess
-A south Africa's platform for chess enthusiasts. Meant for sharing local chess news and upcoming tournaments 
+A south Africa's platform for chess enthusiasts. It is meant for sharing things such as local chess news as well as upcoming tournaments 
 
 
 ## Demo
 
 ![App Screenshot](screenshot.jpg)
-#### link: https://mzansichess.pythonanywhere.com
+###### link: https://mzansichess.pythonanywhere.com
 
 
 ### Features
