@@ -5,7 +5,7 @@ A south Africa's platform for chess enthusiasts. It is meant for sharing things 
 
 ## Demo
 
-![App Screenshot](screenshot.jpg)
+![App Screenshot](screely-1675344936744.png)
 ###### link: https://mzansichess.pythonanywhere.com
 
 
