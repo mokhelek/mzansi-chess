@@ -33,7 +33,7 @@ class Articles(models.Model):
     subtitle = models.CharField(max_length=400)
     #body = models.TextField()
     body = QuillField()
-    date_posted = models.DateTimeField(auto_now=True)
+    date_posted = models.DateTimeField(auto_now_add= True )
     featured_article = models.BooleanField(null=True,blank=True,default=False)
     class Meta:
         verbose_name_plural = "articles"
