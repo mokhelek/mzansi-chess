@@ -1,4 +1,4 @@
-from tabnanny import verbose
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -26,7 +26,6 @@ titles = (
     ("FM", "FM"),
     ("IM", "IM"),
     ("GM", "GM"),
-
 )
 
 
@@ -34,7 +33,7 @@ class Articles(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     thumbnail = models.ImageField()
     title = models.CharField(max_length=200)
-    subtitle = models.CharField(max_length=400)
+    subtitle = models.TextField(max_length=500, null=True, blank=True)
     # body = models.TextField()
     body = QuillField()
     date_posted = models.DateTimeField(auto_now_add=True)

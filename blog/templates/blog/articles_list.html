@@ -33,12 +33,15 @@
 				  </div>
 				  <div class="col-md-7">
 					<div class="card-body">
-						<a href="{% url 'blog:read_article' article.id %}">
-							<h5 class="card-title">{{article.title}}</h5>
+						<a class="featured-title card-title" href="{% url 'blog:read_article' article.id %}">
+						 {{article.title}}
 						</a>
-						<p class="card-text">{{article.subtitle}}</p>
+						<div style="background-color: #f99500ce;height: 4px;width:25%;margin: 0.5rem 0rem 0.5rem 0rem;">
+							
+						</div>
+						<p class="featured-subtitle card-text">{{article.subtitle|truncatechars:100}}</p>
 						<div style="align-items: center;">
-							<p class="card-text"><small class="text-muted">{{article.date_posted|date:"d M Y"}} &bull; {{article.body.html|readtime}}</small></p>
+							<p class="card-text"><small>{{article.date_posted|date:"d M Y"}} &bull; {{article.body.html|readtime}}</small></p>
 						</div>
 					</div>
 				  </div>

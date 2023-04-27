@@ -9,12 +9,36 @@ h1 {
     font-weight: 700;
 }
 
+a {
+    text-decoration: none;
+    color: rgb(37, 37, 37);
+}
+a:hover{
+    text-decoration: underline;
+    color:#f97f00;
+}
+
 p {
     font-family: "Poppins";
 }
 
 .main-heading {
     margin: 2rem 0rem 2rem 0rem;
+}
+
+.featured-title{
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.1rem;
+    color: #222222;
+}
+.featured-subtitle{
+    font-size: 1rem;
+    color: gray;
+}
+small{
+    font-size: 0.8rem;
+    color: #454545;
 }
 
 /* ********************************* Tournaments ****************************** */
@@ -25,10 +49,7 @@ p {
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
-a {
-    text-decoration: none;
-    color: rgb(37, 37, 37);
-}
+
 #tournament-details li {
     list-style: none;
     color: gray;
