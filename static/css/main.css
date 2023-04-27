@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+body {
+    font-family: Poppins;
+}
+
+h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(37, 37, 37);
+}
+a:hover{
+    text-decoration: underline;
+    color:#f97f00;
+}
+
+p {
+    font-family: "Poppins";
+}
+.main-heading {
+    margin: 2rem 0rem 2rem 0rem;
+}
+
+.featured-title{
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.1rem;
+    color: #222222;
+}
+.featured-subtitle{
+    font-size: 1rem;
+    color: gray;
+}
+small{
+    font-size: 0.8rem;
+    color: #454545;
+}
+#section-title{
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    color: #444444;
+  
+}
+/* ************************ Navigation ******************************* */
+#login-btn{
+    background-color: #ffb639;
+    color: rgb(39, 39, 39);
+    font-size: 1rem;
+    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+    min-width: 100px;
+    text-decoration: none;
+}
+#login-btn:hover{
+    background-color: #ffae57;
+}
+
+/* ********************************* Tournaments ****************************** */
+.tournament-title {
+    color: rgb(34, 34, 34);
+    font-family: "Poppins", sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+#tournament-details li {
+    list-style: none;
+    color: gray;
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+}
+#tournament-details li span {
+    margin-left: 0.3rem;
+}
+#tournaments-cta{
+    border-radius: 25px;
+    width: 80%;
+}
