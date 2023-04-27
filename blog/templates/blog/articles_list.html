@@ -1,285 +1,173 @@
-{% extends 'blog/base.html' %}
-
-{% load static %}
-{% load bootstrap5 %}
-{% block content %}
-
-{% load read-time %}
-
-
-
-<style>
-    @media screen and (max-width:775px) {
-        .thumbnail-wrapper{
-            height: 200px;
-        }
-    } 
-    .card-text a{
-        text-decoration: none;
-        
-    }
-    @media  screen and (min-width:900px) {
-        .container-fluid{
-            width:90%;
-        }
-    }
-    @media screen and (min-width:776px) {
-        .thumbnail-wrapper{
-            height: 180px;
-        }
-    }
-    @media screen and (min-width:776px) {
-        .tournament-wrapper{
-            padding-left: 140px;
-        }
-    }
-
-</style>
-
-
-<style>
-    .wrapthumbnail img {
-        position: relative;
-        left: 50%;
-        top: 50%;
-    
-        -webkit-transform: translate(-50%,-50%);
-            -ms-transform: translate(-50%,-50%);
-                transform: translate(-50%,-50%);
-     }
-
-
-</style>
-
-
-
-
-
-<style>
-
-@media screen and (max-width:450px) {
-        #screensize{
-            width: 100%;
-        }
-    }
-	@media screen and (min-width:451px) {
-        #screensize{
-            width: 90%;
-        }
-    }
-
-
-</style>
-
-
-
-
-
-
-
+{% extends 'blog/base.html' %} {% load static %} {% load bootstrap5 %} {% block content %} {% load read-time %}
 
 <!-- Begin Site Title
 ================================================== -->
-<div id="screensize" class="container-fluid" >
-	
-	<div class="mainheading">
-		<img height="60"  src="static/logos/l1-trans.png"><h1 class="sitetitle">Think Chess!</h1>
+<div id="screensize" class="container">
+    <div class="main-heading">
+        <!-- todo : <img height="60" src="{% static 'img/logo.png' %}" /> -->
+        <h1 class="sitetitle">Think Chess!</h1>
 
+        <p class="lead" style="margin-bottom: 0cm">Be up-to-date with the latest <span style="font-weight: 600; color: #f97f00">South Africa's </span> chess news</p>
 
-		<p class="lead" style="margin-bottom:0cm;">
-			 Be up-to-date with the latest  <span style="font-weight: 600;color:#f97f00">South Africa's </span>  chess news
-			 
-		</p>
+        <p class="lead" style="margin-bottom: 0cm">Find <span style="font-weight: 600; color: #f97f00"> upcoming events</span> as well as <span style="font-weight: 600; color: #f97f00"> lessons and resources</span> to help sky rocket your skills!</p>
+    </div>
 
-		<p class="lead" style="margin-bottom:0cm;">
-			Find <span style="font-weight: 600;color:#f97f00">  upcoming events</span> as well as <span style="font-weight: 600;color:#f97f00">  lessons and resources</span> to help sky rocket your skills!
-	   </p>
-		
-	</div>
-<!-- End Site Title
+    <!-- End Site Title
 ================================================== -->
 
-	<!-- Begin Featured
+    <!-- Begin Featured
 	================================================== -->
-	<section class="featured-posts">
-	<div class="section-title">
-		<h2><span>Featured </span></h2>
-	</div>
-	<div class="card-columns listfeaturedtag">
-<!--<div class="thumbnail" style="background-image:url(./static/img/demopic/1.jpg);"> </div>-->
-		<!-- begin post -->
-		{% for article in featured_article %}
-			
-				<div class="card" style="background-color: #eceef8be">
-					<div class="row">
-						<div class="col-md-5 wrapthumbnail">
-							
-								
-							<img style="height:6.7cm" class="img-fluid" src="{{article.thumbnail.url}}" alt="">	
-								
-						</div>
-
-						<div class="col-md-7">
-							<div class="card-block">
-								<a href="{% url 'blog:read_article' article.id %}">  <h3 class="card-title" style="font-weight: 600;color: rgb(32, 32, 32);">{{article.title}}  </h3></a>
-								<h4 style="color: rgb(101, 100, 100);" class="card-text">{{article.subtitle}}</h4>
-								<div class="metafooter">
-									<div class="wrapfooter">
-										
-										<span class="author-meta">
-										<span class="post-name"><a href="#">@Mzansi_Chess</a></span><br/>
-										<span class="post-date">{{article.date_posted|date:"d M Y"}}</span>  <span class="dot"></span><span class="post-read">{{article.body.html|readtime}}</span>
-										</span>
-										<span class="post-read-more"><a href="#" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
-									</div>
-								</div>
-							</div>
+    <section class="featured-posts">
+        <div class="section-title">
+            <h2><span>Featured </span></h2>
+        </div>
+        <div class="row">
+			<div class="col-lg-7">
+            <!-- begin post -->
+            {% for article in featured_article %}
+   
+			<div  class="card mb-3" >
+				<div class="row g-0">
+				  <div class="col-md-5">
+					<img src="{{article.thumbnail.url}}" class="img-fluid rounded-start" alt="...">
+				  </div>
+				  <div class="col-md-7">
+					<div class="card-body">
+						<a href="{% url 'blog:read_article' article.id %}">
+							<h5 class="card-title">{{article.title}}</h5>
+						</a>
+						<p class="card-text">{{article.subtitle}}</p>
+						<div style="align-items: center;">
+							<p class="card-text"><small class="text-muted">{{article.date_posted|date:"d M Y"}} &bull; {{article.body.html|readtime}}</small></p>
 						</div>
 					</div>
+				  </div>
 				</div>
-			
-			
-		{% endfor %}
-		<!-- end post -->
+			  </div>
 
-<!-- ============ FEATURED TOURNAMENTS ================ -->
-
-		<div class="flex-md-row mb-4 box-shadow h-xl-300" style="background-color: rgba(229, 229, 229, 0.216);">
-			{% for tournament in tournaments %}
-			<div class="mb-3 d-flex align-items-center">
-				<img height="80" width="110" src="{{tournament.thumbnail_t.url}}">
-				<div class="pl-3">
-					<h2 class="mb-2 h6" >
-					<a class="text-dark" style="font-weight: 600;" href="{% url 'blog:tournament_details' tournament.id %}">{{tournament.name}}</a>
-					</h2>
-					<div class="card-text text-muted">
-						<h6>  Starts {{tournament.starts}}, ends {{tournament.ends}}</h6>
-					</div>
-					<a style="margin-top: 0.1cm;" href="{% url 'blog:tournament_details' tournament.id %}"> view</a>
-				</div>
+            {% endfor %}
+            <!-- end post -->
 			</div>
-			{% endfor %}
-		</div>
 
-	</div>
-	</section>
-	<!-- End Featured Tournaments
+            <!-- ============ FEATURED TOURNAMENTS ================ -->
+
+            <div class="col-lg-5" style="background-color: rgba(229, 229, 229, 0.216)">
+                {% for tournament in tournaments %}
+                <div class="mb-3 d-flex align-items-center">
+                    <img height="80" width="110" src="{{tournament.thumbnail_t.url}}" />
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6">
+                            <a class="text-dark" style="font-weight: 600" href="{% url 'blog:tournament_details' tournament.id %}">{{tournament.name}}</a>
+                        </h2>
+                        <div class="card-text text-muted">
+                            <h6>Starts {{tournament.starts}}, ends {{tournament.ends}}</h6>
+                        </div>
+                        <a style="margin-top: 0.1cm" href="{% url 'blog:tournament_details' tournament.id %}"> view</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- End Featured Tournaments
 	================================================== -->
 
-
-
-
-	<!-- Begin List Posts
+    <!-- Begin List Posts
 	================================================== -->
-	<section class="recent-posts">
-	<div class="section-title">
-		<h2><span>All Stories</span></h2>
-	</div>
-	
+    <section class="recent-posts">
+        <div class="section-title">
+            <h2><span>All Stories</span></h2>
+        </div>
 
-		<!-- begin post -->
-		<div class="row">
-			{% for article in articles %}
-			<div class="col-md-4">  
-				<div class="card" style="background-color: rgb(237, 242, 255);margin-bottom: 0.3cm;">
-					
-						<div  class="thumbnail-wrapper"> 
-							
-								<img class="card-img-top" src="{{article.thumbnail.url}}" alt="">
-						
-						</div>
-					<div  style="margin-top:0cm;margin-left: 0.3cm;" >   
-					{% with title_length=article.title|length subtitle_length=article.subtitle|length %}
-						
-						<h4><a style="color: rgb(33, 33, 33);margin-top: 0cm;font-weight: 600;" href="{% url 'blog:read_article' article.id %}">{{article.title}}</a></h4>
-						
-						{% if title_length > 30 %}
-						<h5>{{article.subtitle|truncatechars:35}}</h5>
-						{% else %}
-						<h5>{{article.subtitle|truncatechars:50}}</h5>
-						{% endif %}
-					{% endwith %}
-						<div class="metafooter">
-							<div class="wrapfooter">
-								
-								<span class="author-meta">
-								<span class="post-name"><a href="#">@Mzansi_Chess</a></span><br/>
-								<span class="post-date">{{article.date_posted|date:"d M Y"}}</span><span class="dot"></span><span class="post-read">{{article.body.html|readtime}}</span>
-								</span>
-								<span class="post-read-more"><a href="#" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
-							
-							</div>
-						</div>
-						<br>
-					</div>
-					
-				</div>
-			</div>
-			{% endfor %}
-		</div>
-		<!-- end post -->
+        <!-- begin post -->
+        <div class="row">
+            {% for article in articles %}
+            <div class="col-md-4">
+                <div class="card" style="background-color: rgb(237, 242, 255); margin-bottom: 0.3cm">
+                    <div class="thumbnail-wrapper">
+                        <img class="card-img-top" src="{{article.thumbnail.url}}" alt="" />
+                    </div>
+                    <div style="margin-top: 0cm; margin-left: 0.3cm">
+                        {% with title_length=article.title|length subtitle_length=article.subtitle|length %}
 
+                        <h4><a style="color: rgb(33, 33, 33); margin-top: 0cm; font-weight: 600" href="{% url 'blog:read_article' article.id %}">{{article.title}}</a></h4>
 
+                        {% if title_length > 30 %}
+                        <h5>{{article.subtitle|truncatechars:35}}</h5>
+                        {% else %}
+                        <h5>{{article.subtitle|truncatechars:50}}</h5>
+                        {% endif %} {% endwith %}
+                        <div class="metafooter">
+                            <div class="wrapfooter">
+                                <span class="author-meta">
+                                    <span class="post-name"><a href="#">@Mzansi_Chess</a></span
+                                    ><br />
+                                    <span class="post-date">{{article.date_posted|date:"d M Y"}}</span><span class="dot"></span><span class="post-read">{{article.body.html|readtime}}</span>
+                                </span>
+                                <span class="post-read-more"
+                                    ><a href="#" title="Read Story"
+                                        ><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a
+                                ></span>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- end post -->
 
+        <div class="container col-12">
+            <div class="pagination">
+                <span class="step-links">
+                    {% if articles.has_previous %}
 
-		<div class="container col-12"> 
-			<div class="pagination">
-				<span class="step-links">
-		
-					{% if articles.has_previous %}
-					  
-						<a style="text-decoration: none;" class="position-relative " href="?page={{ articles.previous_page_number }}"> 
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-								<path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-							  </svg> previous
-							</a>
-		
-					{% else %}    
-						<a href="#" class="position-relative " style="color: gray;text-decoration: none;">
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-								<path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-							  </svg> previous</a>
-					{% endif %}
-		
-					<span class="position-relative " style="font-weight: 600; margin-left: 0.8cm; margin-right: 0.8cm;">
-						 {{ articles.number }} of {{ articles.paginator.num_pages }} 
-					</span>    
-		
-					{% if articles.has_next %}
-						<a style="text-decoration: none;"class="position-relative " href="?page={{ articles.next_page_number }}">
-							next <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-								<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-							  </svg></a>
-		
-					{% else %}    
-					<a style="color: gray;text-decoration: none;" class="position-relative " href="#">
-						next <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-						<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-					  </svg></a>
-		
-					{% endif %}
-		
-				</span>
-			</div>
-		</div>
+                    <a style="text-decoration: none" class="position-relative" href="?page={{ articles.previous_page_number }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                        </svg>
+                        previous
+                    </a>
 
+                    {% else %}
+                    <a href="#" class="position-relative" style="color: gray; text-decoration: none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                        </svg>
+                        previous</a
+                    >
+                    {% endif %}
 
+                    <span class="position-relative" style="font-weight: 600; margin-left: 0.8cm; margin-right: 0.8cm"> {{ articles.number }} of {{ articles.paginator.num_pages }} </span>
 
+                    {% if articles.has_next %}
+                    <a style="text-decoration: none" class="position-relative" href="?page={{ articles.next_page_number }}">
+                        next
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" /></svg
+                    ></a>
 
+                    {% else %}
+                    <a style="color: gray; text-decoration: none" class="position-relative" href="#">
+                        next
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" /></svg
+                    ></a>
 
-	
-	</section>
-	<!-- End List Posts
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+    </section>
+    <!-- End List Posts
 	================================================== -->
 
-	<!-- Begin Footer
+    <!-- Begin Footer
 	================================================== -->
 
-	<!-- End Footer
+    <!-- End Footer
 	================================================== -->
-
 </div>
-
-
 
 {% endblock content %}

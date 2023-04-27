@@ -1,53 +1,68 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-    {% load static %}
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mzansi Chess</title>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <head>
+        {% load static %} 
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mzansi Chess</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/blog_style.css' %}"/>
-    <link href="{% static 'css/mediumish.css' %}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-
-
-    
-</head>
-{% url 'blog:blog' as blog_path %}
-{% url 'blog:ratings' as ratings_path %}
-{% url 'blog:tournaments' as tournaments_path %}
-
-
-<!-- Begin Nav
-================================================== 
-<nav class="navbar navbar-dark sticky-top" style="background-color:#051622;  height: 2cm;">  
- <nav class="navbar navbar-toggleable-md navbar-light bg-white fixed-top " style="box-shadow: 0 0 2px rgb(172, 172, 247);">
-
-
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"  style= "width: 8.5cm;background-color:#051622;" aria-labelledby="offcanvasNavbarLabel">
--->
-
-
-<style>
+        <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+    </head>
+    <style>
   
-  @media screen  and (min-width:450px){
-    #logo{
-      margin-left: 0.4cm;
-    }
-  }
-</style>
+        #logo img{
+          margin-left: 0.4cm;
+          width:50px;
+        }
+    
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+          <a id="logo"  class="navbar-brand d-flex" href="{% url 'blog:blog' %}" style="margin-left: 0.5cm;">
+            <img  src="{% static 'img/logo.png' %}" alt="logo">  
+            <!-- <h5> <strong>Mzansi </strong> </h6><h5 style="color: #f97f00"><strong>Chess</strong> </h5> -->
+            </a>
+     
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            Navbar text with an inline element
+          </span>
+        </div>
+      </div>
+    </nav>
 
- 
+    <body>
+        {% block content %} 
+        
+        {% endblock content %}
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    </body>
+</html>
+
+<!--  
 <nav class="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation" style="box-shadow: 0 0 2px rgb(172, 172, 247);">
 
    
@@ -136,279 +151,4 @@
      
   </div>
      
-  </nav> 
-
-
-<body>
-
-  
-  
-
-
-<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasScrollingLabel"> <strong>  Menu </strong></h5>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-         
-    <ul class="navbar-nav ml-auto">
-      {% if request.path == blog_path %}
-      <li class="nav-item border-bottom border-2 border-warning">
-        <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:blog' %}">Home</a>
-      </li>
-      {% else %}
-      <li class="nav-item">
-        <a style="color: rgb(62, 62, 62);font-size: larger;font-weight: 500;" class="nav-link" href="{% url 'blog:blog' %}">Home</a>
-      </li>
-      {% endif %}
-  
-      {% if request.path == ratings_path %}
-      <li class="nav-item  border-bottom border-2 border-warning">
-      <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:ratings' %}">Ratings</a>
-      </li>
-      {% else %}
-      <li class="nav-item">
-        <a  style="color: rgb(62, 62, 62);font-size: larger;font-weight: 500;" class="nav-link" href="{% url 'blog:ratings' %}">Ratings</a>
-      </li>
-      {% endif %}
-  
-      {% if request.path == tournaments_path %}
-      <li class="nav-item border-bottom border-2 border-warning">
-      <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
-      </li>
-      {% else %}
-      <li class="nav-item">
-        <a  style="color: rgb(62, 62, 62);font-size: larger;font-weight: 500;" class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
-        </li>
-        {% endif %}
-      <li class="nav-item">
-      <a  style="color: rgb(62, 62, 62);font-size: larger;font-weight: 500;" class="nav-link" href="#">Resources</a>
-      </li>
-      
-      <li class="nav-item">
-        {% if user.is_anonymous %}
-        <div class="d-flex">
-          <a href="{% url 'users:login' %}" class="nav-link"> <button class=" btn btn-sm" style="background-color:#2162fa;border-radius: 10px;color: white;font-size:0.8rem;border: 1px rgb(7, 2, 255) solid ">Login</button></a>
-        </div>
-  
-     {% else %}  
-        <div class="d-flex">
-        <a href="{% url 'users:logout' %}" class="nav-link"> 
-          <button class=" btn btn-sm" style="background-color:#b3b1b1;border-radius: 10px;color: white;border: 1px rgb(71, 71, 71) solid;font-size:0.8rem ;">Logout</button>
-        </a>
-        </div> 
-     {% endif %}
-  
-        </li>
-      
-    </ul>
-  
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <span class="search-icon"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path></svg></span>
-    </form>
-  </div>
-</div>
-
-
-    {% block content %}
-
-    {% endblock content %}
-    <div class="footer sticky-bottom" style="background-color: rgb(210, 220, 249);">
-      <p class="pull-left" style="color: #f97f00;">
-        &nbsp; &nbsp;Copyright &copy; 2022 Mzansi_Chess
-      </p>
-      <p class="pull-right" style="color: #f97f00;">
-         Made With Love by <a target="_blank" style="font-weight: 500;" href="https://mokhelekatleho.pythonanywhere.com">Mokhele Katleho</a> &nbsp; &nbsp;
-      </p>
-      <div class="clearfix">
-    
-      </div>
-    </div>
-
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-
-
-<script src="{% static 'js/jquery.min.js' %}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
-
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-
-
-
-</body>
-
-</html>
-
-<!--  
-<nav class="navbar navbar-expand-lg navbar-light  sticky-top" style="background-color: #FFF; box-shadow:0 0 3px #abc6eb; ">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'blog:blog' %}">
-        <img style="width: 120px;" src="{% static 'MzansiChess-logos__transparent.png' %}">    
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          
-          {% if request.path == blog_path %}
-          <li class="nav-item">
-            
-            <a style="font-weight: 600;color:#1E2A3B;font-size: 1.2rem;" class="nav-link" aria-current="page" href="{% url 'blog:blog' %} ">
-                Home </a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a style="font-size: 1.2rem;color:#1E2A3B"  class="nav-link" aria-current="page" href="{% url 'blog:blog' %}">Home</a>
-          </li>
-          {% endif %}
-  
-          {% if request.path == ratings_path %}
-          <li class="nav-item">
-            <Blog style="font-weight: 600;color:#1E2A3B;font-size: 1.2rem;" class="nav-link" aria-current="page" href="{% url 'blog:ratings' %}">Ratings</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a style="font-size: 1.2rem;color:#1E2A3B" class="nav-link" aria-current="page" href="{% url 'blog:ratings' %}">Ratings</a>
-          </li>
-          {% endif %}
-  
-          {% if request.path == tournaments_path %}
-          <li class="nav-item">
-            <a style="font-size: 1.2rem;color:#1E2A3B;font-weight: 600"  class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a style="font-size: 1.2rem;color:#1E2A3B;"  class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
-          </li>
-          {% endif %}
-
-          <li class="nav-item">
-            <a style="font-size: 1.2rem;color:#1E2A3B"  class="nav-link" href="#">Resources</a>
-          </li>
-          
-        </ul>
-        
-      
-          &nbsp;&nbsp;&nbsp;
-          {% if user.is_anonymous %}
-            <div class="d-flex">
-                Login/Register
-            </div>
-
-         {% else %}  
-            <div class="d-flex">
-                Mokhele
-            </div> 
-         {% endif %}
-
-      </div>
-    
-    </div>
-  </nav>
-  -->
-
-
-
-  <!--
-
-
-    <nav class="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation" style="box-shadow: 0 0 2px rgb(172, 172, 247);">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="container">
-  
- 
-
-    <a class="navbar-brand d-flex" href="{% url 'blog:blog' %}" style="font-weight: 700;">
-      <img  src="{% static 'img/logo.png' %}" alt="logo"><h5> <strong>Mzansi </strong> </h6><h5 style="color: #f97f00"><strong>Chess</strong> </h5>
-      </a>
-      
-    
-  
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-       
-        <ul class="navbar-nav ml-auto">
-          {% if request.path == blog_path %}
-          <li class="nav-item border-bottom border-2 border-warning">
-            <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:blog' %}">Home</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:blog' %}">Home</a>
-          </li>
-          {% endif %}
-  
-          {% if request.path == ratings_path %}
-          <li class="nav-item  border-bottom border-2 border-warning">
-          <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:ratings' %}">Ratings</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:ratings' %}">Ratings</a>
-          </li>
-          {% endif %}
-  
-          {% if request.path == tournaments_path %}
-          <li class="nav-item border-bottom border-2 border-warning">
-          <a style="color: #f97f00;font-weight:bold;font-size:1rem" class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:tournaments' %}">Tournaments</a>
-            </li>
-            {% endif %}
-          <li class="nav-item">
-          <a class="nav-link" href="#">Resources</a>
-          </li>
-          
-          <li class="nav-item">
-            {% if user.is_anonymous %}
-            <div class="d-flex">
-              <a href="{% url 'users:login' %}" class="nav-link"> <button class=" btn btn-sm" style="background-color:#2162fa;border-radius: 10px;color: white;font-size:0.8rem;border: 1px rgb(7, 2, 255) solid ">Login</button></a>
-            </div>
-  
-         {% else %}  
-            <div class="d-flex">
-            <a href="{% url 'users:logout' %}" class="nav-link"> 
-              <button class=" btn btn-sm" style="background-color:#b3b1b1;border-radius: 10px;color: white;border: 1px rgb(71, 71, 71) solid;font-size:0.8rem ;">Logout</button>
-            </a>
-            </div> 
-         {% endif %}
-  
-            </li>
-  
- 
-          
-        </ul>
-      
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <span class="search-icon"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path></svg></span>
-        </form>
-      
-      </div>
-    </div>
-    </nav>
-  -->
-
-
-
-
-
-  <!-- ========================== NAV 2 ==================================================  -->
-  <!--
-
-
-
-
-  -->
+  </nav>  -->
