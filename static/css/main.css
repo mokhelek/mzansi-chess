@@ -21,7 +21,6 @@ a:hover{
 p {
     font-family: "Poppins";
 }
-
 .main-heading {
     margin: 2rem 0rem 2rem 0rem;
 }
@@ -39,6 +38,24 @@ p {
 small{
     font-size: 0.8rem;
     color: #454545;
+}
+#section-title{
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    color: #444444;
+  
+}
+/* ************************ Navigation ******************************* */
+#login-btn{
+    background-color: #ffb639;
+    color: rgb(39, 39, 39);
+    font-size: 1rem;
+    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+    min-width: 100px;
+    text-decoration: none;
+}
+#login-btn:hover{
+    background-color: #ffae57;
 }
 
 /* ********************************* Tournaments ****************************** */
