@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 body {
-    font-family: Poppins;
+    font-family: "Poppins", sans-serif;
 }
 
 h1 {
@@ -19,7 +19,7 @@ a:hover{
 }
 
 p {
-    font-family: "Poppins";
+    font-family: "Poppins", sans-serif;
 }
 .main-heading {
     margin: 2rem 0rem 2rem 0rem;
@@ -79,4 +79,18 @@ small{
 #tournaments-cta{
     border-radius: 25px;
     width: 80%;
+    text-decoration: none;
+}
+
+/* ************************************************************************************* */
+#article-thumbnail{
+    height: 200px;
+}
+#article-title{
+    font-size: 1.3rem;
+    color: #222222;
+}
+#article-subtitle{
+    font-size: 1rem;
+    color: #505050;
 }

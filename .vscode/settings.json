@@ -1,6 +1,8 @@
 {
     "cSpell.words": [
-        "Mzansi"
+        "forloop",
+        "Mzansi",
+        "readtime"
     ],
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"
