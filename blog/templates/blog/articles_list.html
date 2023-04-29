@@ -18,154 +18,153 @@
     <!-- Begin Featured
 	================================================== -->
     <section class="featured-posts">
-        <div style="border-bottom: 1px rgb(224, 224, 224) solid;margin-bottom: 1rem;padding-bottom: 0.5rem;">
-            <span id="section-title" ><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-bookmark-star text-secondary" viewBox="0 0 16 16">
-                <path d="M7.84 4.1a.178.178 0 0 1 .32 0l.634 1.285a.178.178 0 0 0 .134.098l1.42.206c.145.021.204.2.098.303L9.42 6.993a.178.178 0 0 0-.051.158l.242 1.414a.178.178 0 0 1-.258.187l-1.27-.668a.178.178 0 0 0-.165 0l-1.27.668a.178.178 0 0 1-.257-.187l.242-1.414a.178.178 0 0 0-.05-.158l-1.03-1.001a.178.178 0 0 1 .098-.303l1.42-.206a.178.178 0 0 0 .134-.098L7.84 4.1z"/>
-                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
-              </svg> Featured 
+        <div style="border-bottom: 1px rgb(224, 224, 224) solid; margin-bottom: 1rem; padding-bottom: 0.5rem">
+            <span id="section-title"
+                ><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-bookmark-star text-secondary" viewBox="0 0 16 16">
+                    <path d="M7.84 4.1a.178.178 0 0 1 .32 0l.634 1.285a.178.178 0 0 0 .134.098l1.42.206c.145.021.204.2.098.303L9.42 6.993a.178.178 0 0 0-.051.158l.242 1.414a.178.178 0 0 1-.258.187l-1.27-.668a.178.178 0 0 0-.165 0l-1.27.668a.178.178 0 0 1-.257-.187l.242-1.414a.178.178 0 0 0-.05-.158l-1.03-1.001a.178.178 0 0 1 .098-.303l1.42-.206a.178.178 0 0 0 .134-.098L7.84 4.1z" />
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+                </svg>
+                Featured
             </span>
         </div>
         <div class="row">
-			<div class="col-lg-7">
-            <!-- begin post -->
-            {% for article in featured_article %}
-   
-			<div class="card mb-3" >
-				<div class="row g-0">
-				  <div class="col-md-5">
-					<img style="max-height:230px; width: 100%;min-height: 230px;" src="{{article.thumbnail.url}}" class="img-fluid rounded-start" alt="{{article.title}}">
-				  </div>
-				  <div class="col-md-7">
-					<div class="card-body">
-						<a class="featured-title card-title" href="{% url 'blog:read_article' article.id %}">
-						 {{article.title}}
-						</a>
-						<div style="background-color: #f99500ce;height: 4px;width:25%;margin: 0.5rem 0rem 0.5rem 0rem;">
-							
-						</div>
-						<p class="featured-subtitle card-text">{{article.subtitle|truncatechars:100}}</p>
-						<div style="align-items: center;">
-							<p class="card-text"><small>{{article.date_posted|date:"d M Y"}} &bull; {{article.body.html|readtime}}</small></p>
-						</div>
-					</div>
-				  </div>
-				</div>
-			  </div>
+            <div class="col-lg-7">
+                <!-- begin post -->
+                {% for article in featured_article %}
 
-            {% endfor %}
-            <!-- end post -->
-			</div>
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <img style="max-height: 230px; width: 100%; min-height: 230px" src="{{article.thumbnail.url}}" class="img-fluid rounded-start" alt="{{article.title}}" />
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body">
+                                <a class="featured-title card-title" href="{% url 'blog:read_article' article.id %}"> {{article.title}} </a>
+                                <div style="background-color: #f99500ce; height: 4px; width: 25%; margin: 0.5rem 0rem 0.5rem 0rem"></div>
+                                <p class="featured-subtitle card-text">{{article.subtitle|truncatechars:100}}</p>
+                                <div style="align-items: center">
+                                    <p class="card-text"><small>{{article.date_posted|date:"d M Y"}} &bull; {{article.body.html|readtime}}</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+                <!-- end post -->
+            </div>
 
             <!-- ============ FEATURED TOURNAMENTS ================ -->
 
             <div class="col-lg-5">
-				<div style="padding:1rem; background-color: rgba(0, 53, 151, 0.046);">
-					{% for tournament in tournaments %}
-					<div class="mb-3 d-flex align-items-center">
-						<img height="80" width="110" src="{{tournament.thumbnail_t.url}}" />
-						<div style="margin-left: 0.6rem;">
-							<a class="tournament-title" href="{% url 'blog:tournament_details' tournament.id %}">{{tournament.name}}</a>
-							<div id="tournament-details" style="margin-top: 0.3rem;">
-								<li>
-									<svg fill="#ff9829" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-										width="16px" height="16px" viewBox="0 0 610.398 610.398"
-										xml:space="preserve">
-									<g>
-										<g>
-											<path d="M159.567,0h-15.329c-1.956,0-3.811,0.411-5.608,0.995c-8.979,2.912-15.616,12.498-15.616,23.997v10.552v27.009v14.052
+                <div style="padding: 1rem; background-color: rgba(0, 53, 151, 0.046)">
+                    {% for tournament in tournaments %}
+                    <div class="mb-3 d-flex align-items-center">
+                        <img height="80" width="110" src="{{tournament.thumbnail_t.url}}" />
+                        <div style="margin-left: 0.6rem">
+                            <a class="tournament-title" href="{% url 'blog:tournament_details' tournament.id %}">{{tournament.name}}</a>
+                            <div id="tournament-details" style="margin-top: 0.3rem">
+                                <li>
+                                    <svg fill="#ff9829" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 610.398 610.398" xml:space="preserve">
+                                        <g>
+                                            <g>
+                                                <path
+                                                    d="M159.567,0h-15.329c-1.956,0-3.811,0.411-5.608,0.995c-8.979,2.912-15.616,12.498-15.616,23.997v10.552v27.009v14.052
 												c0,2.611,0.435,5.078,1.066,7.44c2.702,10.146,10.653,17.552,20.158,17.552h15.329c11.724,0,21.224-11.188,21.224-24.992V62.553
-												V35.544V24.992C180.791,11.188,171.291,0,159.567,0z"/>
-											<path d="M461.288,0h-15.329c-11.724,0-21.224,11.188-21.224,24.992v10.552v27.009v14.052c0,13.804,9.5,24.992,21.224,24.992
-												h15.329c11.724,0,21.224-11.188,21.224-24.992V62.553V35.544V24.992C482.507,11.188,473.007,0,461.288,0z"/>
-											<path d="M539.586,62.553h-37.954v14.052c0,24.327-18.102,44.117-40.349,44.117h-15.329c-22.247,0-40.349-19.79-40.349-44.117
+												V35.544V24.992C180.791,11.188,171.291,0,159.567,0z" />
+                                                <path
+                                                    d="M461.288,0h-15.329c-11.724,0-21.224,11.188-21.224,24.992v10.552v27.009v14.052c0,13.804,9.5,24.992,21.224,24.992
+												h15.329c11.724,0,21.224-11.188,21.224-24.992V62.553V35.544V24.992C482.507,11.188,473.007,0,461.288,0z" />
+                                                <path
+                                                    d="M539.586,62.553h-37.954v14.052c0,24.327-18.102,44.117-40.349,44.117h-15.329c-22.247,0-40.349-19.79-40.349-44.117
 												V62.553H199.916v14.052c0,24.327-18.102,44.117-40.349,44.117h-15.329c-22.248,0-40.349-19.79-40.349-44.117V62.553H70.818
 												c-21.066,0-38.15,16.017-38.15,35.764v476.318c0,19.784,17.083,35.764,38.15,35.764h468.763c21.085,0,38.149-15.984,38.149-35.764
-												V98.322C577.735,78.575,560.671,62.553,539.586,62.553z M527.757,557.9l-446.502-0.172V173.717h446.502V557.9z"/>
-											<path d="M353.017,266.258h117.428c10.193,0,18.437-10.179,18.437-22.759s-8.248-22.759-18.437-22.759H353.017
-												c-10.193,0-18.437,10.179-18.437,22.759C334.58,256.074,342.823,266.258,353.017,266.258z"/>
-											<path d="M353.017,348.467h117.428c10.193,0,18.437-10.179,18.437-22.759c0-12.579-8.248-22.758-18.437-22.758H353.017
-												c-10.193,0-18.437,10.179-18.437,22.758C334.58,338.288,342.823,348.467,353.017,348.467z"/>
-											<path d="M353.017,430.676h117.428c10.193,0,18.437-10.18,18.437-22.759s-8.248-22.759-18.437-22.759H353.017
-												c-10.193,0-18.437,10.18-18.437,22.759S342.823,430.676,353.017,430.676z"/>
-											<path d="M353.017,512.89h117.428c10.193,0,18.437-10.18,18.437-22.759c0-12.58-8.248-22.759-18.437-22.759H353.017
-												c-10.193,0-18.437,10.179-18.437,22.759C334.58,502.71,342.823,512.89,353.017,512.89z"/>
-											<path d="M145.032,266.258H262.46c10.193,0,18.436-10.179,18.436-22.759s-8.248-22.759-18.436-22.759H145.032
-												c-10.194,0-18.437,10.179-18.437,22.759C126.596,256.074,134.838,266.258,145.032,266.258z"/>
-											<path d="M145.032,348.467H262.46c10.193,0,18.436-10.179,18.436-22.759c0-12.579-8.248-22.758-18.436-22.758H145.032
-												c-10.194,0-18.437,10.179-18.437,22.758C126.596,338.288,134.838,348.467,145.032,348.467z"/>
-											<path d="M145.032,430.676H262.46c10.193,0,18.436-10.18,18.436-22.759s-8.248-22.759-18.436-22.759H145.032
-												c-10.194,0-18.437,10.18-18.437,22.759S134.838,430.676,145.032,430.676z"/>
-											<path d="M145.032,512.89H262.46c10.193,0,18.436-10.18,18.436-22.759c0-12.58-8.248-22.759-18.436-22.759H145.032
-												c-10.194,0-18.437,10.179-18.437,22.759C126.596,502.71,134.838,512.89,145.032,512.89z"/>
-										</g>
-									</g>
-									</svg>
-									<span> 15/02/2023 - 17/02/2023</span>
-								</li>
-							
-								<li>
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" style="color:#ff9829" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-										<path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-										<path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-									</svg>
-									<span> Cape Town</span>
-								</li>
-							
-							</div>
-						</div>
-					</div>
-					<hr>
-					{% endfor %}
-					<center>
-						<a id="tournaments-cta" class="btn btn-outline-primary" href="#">view all tournaments</a>
-					</center>
-				</div>
-            </div>
+												V98.322C577.735,78.575,560.671,62.553,539.586,62.553z M527.757,557.9l-446.502-0.172V173.717h446.502V557.9z" />
+                                                <path
+                                                    d="M353.017,266.258h117.428c10.193,0,18.437-10.179,18.437-22.759s-8.248-22.759-18.437-22.759H353.017
+												c-10.193,0-18.437,10.179-18.437,22.759C334.58,256.074,342.823,266.258,353.017,266.258z" />
+                                                <path
+                                                    d="M353.017,348.467h117.428c10.193,0,18.437-10.179,18.437-22.759c0-12.579-8.248-22.758-18.437-22.758H353.017
+												c-10.193,0-18.437,10.179-18.437,22.758C334.58,338.288,342.823,348.467,353.017,348.467z" />
+                                                <path
+                                                    d="M353.017,430.676h117.428c10.193,0,18.437-10.18,18.437-22.759s-8.248-22.759-18.437-22.759H353.017
+												c-10.193,0-18.437,10.18-18.437,22.759S342.823,430.676,353.017,430.676z" />
+                                                <path
+                                                    d="M353.017,512.89h117.428c10.193,0,18.437-10.18,18.437-22.759c0-12.58-8.248-22.759-18.437-22.759H353.017
+												c-10.193,0-18.437,10.179-18.437,22.759C334.58,502.71,342.823,512.89,353.017,512.89z" />
+                                                <path
+                                                    d="M145.032,266.258H262.46c10.193,0,18.436-10.179,18.436-22.759s-8.248-22.759-18.436-22.759H145.032
+												c-10.194,0-18.437,10.179-18.437,22.759C126.596,256.074,134.838,266.258,145.032,266.258z" />
+                                                <path
+                                                    d="M145.032,348.467H262.46c10.193,0,18.436-10.179,18.436-22.759c0-12.579-8.248-22.758-18.436-22.758H145.032
+												c-10.194,0-18.437,10.179-18.437,22.758C126.596,338.288,134.838,348.467,145.032,348.467z" />
+                                                <path
+                                                    d="M145.032,430.676H262.46c10.193,0,18.436-10.18,18.436-22.759s-8.248-22.759-18.436-22.759H145.032
+												c-10.194,0-18.437,10.18-18.437,22.759S134.838,430.676,145.032,430.676z" />
+                                                <path
+                                                    d="M145.032,512.89H262.46c10.193,0,18.436-10.18,18.436-22.759c0-12.58-8.248-22.759-18.436-22.759H145.032
+												c-10.194,0-18.437,10.179-18.437,22.759C126.596,502.71,134.838,512.89,145.032,512.89z" />
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span> 15/02/2023 - 17/02/2023</span>
+                                </li>
 
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" style="color: #ff9829" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                    </svg>
+                                    <span> Cape Town</span>
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                    <center>
+                        <a id="tournaments-cta" class="btn btn-outline-primary" href="#">view all tournaments</a>
+                    </center>
+                </div>
+            </div>
         </div>
     </section>
     <!-- End Featured Tournaments
 	================================================== -->
 
+    <section style="background-color: #000946; height: 300px">
+        <div class="container"></div>
+    </section>
+
+    <br />
+
     <!-- Begin List Posts
 	================================================== -->
     <section class="recent-posts">
-        <div class="section-title">
-            <h2><span>All Stories</span></h2>
+        <div style="border-bottom: 1px rgb(224, 224, 224) solid; margin-bottom: 1rem; padding-bottom: 0.5rem">
+            <span id="section-title"
+                ><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+                </svg>
+                &nbsp; News & Articles
+            </span>
         </div>
 
         <!-- begin post -->
         <div class="row">
             {% for article in articles %}
             <div class="col-md-4">
-                <div class="card" style="background-color: rgb(237, 242, 255); margin-bottom: 0.3cm">
-                    <div class="thumbnail-wrapper">
-                        <img class="card-img-top" src="{{article.thumbnail.url}}" alt="" />
-                    </div>
-                    <div style="margin-top: 0cm; margin-left: 0.3cm">
-                        {% with title_length=article.title|length subtitle_length=article.subtitle|length %}
+                <div style="margin-bottom: 1rem" class="card">
+                    <img class="card-img-top" id="article-thumbnail" src="{{article.thumbnail.url}}" alt="" />
 
-                        <h4><a style="color: rgb(33, 33, 33); margin-top: 0cm; font-weight: 600" href="{% url 'blog:read_article' article.id %}">{{article.title}}</a></h4>
-
-                        {% if title_length > 30 %}
-                        <h5>{{article.subtitle|truncatechars:35}}</h5>
-                        {% else %}
-                        <h5>{{article.subtitle|truncatechars:50}}</h5>
-                        {% endif %} {% endwith %}
-                        <div class="metafooter">
-                            <div class="wrapfooter">
-                                <span class="author-meta">
-                                    <span class="post-name"><a href="#">@Mzansi_Chess</a></span
-                                    ><br />
-                                    <span class="post-date">{{article.date_posted|date:"d M Y"}}</span><span class="dot"></span><span class="post-read">{{article.body.html|readtime}}</span>
-                                </span>
-                                <span class="post-read-more"
-                                    ><a href="#" title="Read Story"
-                                        ><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a
-                                ></span>
-                            </div>
+                    <div style="height: 250px" class="card-body d-grid">
+                        <div>
+                            <a style="font-weight: 500; font-size: 1.2rem" class="card-title" id="article-title" href="{% url 'blog:read_article' article.id %}">{{article.title}}</a>
+                            <p style="position: relative; font-size: 1rem" id="article-subtitle">{{article.subtitle|truncatechars:120}}</p>
                         </div>
-                        <br />
+                        <div class="d-flex align-items-end">
+                            <small class="d-flex align-items-end card-text">{{article.date_posted|date:"d M Y"}} &bull; {{article.body.html|readtime}}</small>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -200,29 +199,58 @@
                     <a style="text-decoration: none" class="position-relative" href="?page={{ articles.next_page_number }}">
                         next
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" /></svg
-                    ></a>
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                        </svg>
+                    </a>
 
                     {% else %}
                     <a style="color: gray; text-decoration: none" class="position-relative" href="#">
                         next
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" /></svg
-                    ></a>
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                        </svg>
+                    </a>
 
                     {% endif %}
                 </span>
             </div>
         </div>
     </section>
-    <!-- End List Posts
-	================================================== -->
 
-    <!-- Begin Footer
-	================================================== -->
+    <br /><br /><br />
+    <section>
 
-    <!-- End Footer
-	================================================== -->
+
+
+
+
+        <div class="container-fluid blog-container"  >
+            <div class="row d-flex justify-content-center">
+              {% for article in tournaments %}
+              <div class=" col-12 col-md-10 col-lg-9">
+               {% if forloop.counter == 1 %}
+               <div class="d-flex" style="border-top:1px  solid rgba(110, 110, 110, 0.74);border-bottom:1px  solid rgba(95, 95, 95, 0.829);"> 
+                {% else %}
+                <div class="d-flex" style="border-bottom:1px  solid rgba(67, 67, 67, 0.704);">  
+                {% endif %}
+               
+                  <div class="blog-img" style="margin: 20px;">
+                    <img height="150" src="{{article.thumbnail_t.url}}" alt="">
+                  </div>
+                  <div class="">
+                   <a href="#" class="article-link">  <h3 class="blog-title" style="margin-left: 2px;margin-top:10px;color:rgb(36, 36, 36)">{{article.name}}</h3> </a>
+                
+      
+                  </div>
+                </div>
+      
+              </div>
+              {% endfor %}
+          </div>
+
+
+
+    </section>
 </div>
 
 {% endblock content %}
