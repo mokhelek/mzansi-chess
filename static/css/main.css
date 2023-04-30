@@ -94,3 +94,13 @@ small{
     font-size: 1rem;
     color: #505050;
 }
+
+.all-articles-cta{
+    background-color: #ff9422;
+    text-decoration: none !important;
+    color: rgb(69, 69, 69);
+}
+
+.all-articles-cta:hover{
+    background-color: #ffa13c;
+}
