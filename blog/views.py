@@ -6,17 +6,19 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 def blog(request):
-    articles = Articles.objects.all().order_by("-date_posted")
+    articles = Articles.objects.all().order_by("-date_posted")[:3]
     tournaments = Tournaments.objects.all()[:3:-1]
 
-    paginator = Paginator(articles, 6) 
-   
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    featured_articles = Articles.objects.filter(featured_article=True)[:2:-1]
+    featured_tournaments = Tournaments.objects.filter(featured_tournament=True)[:3:-1]
+
     
-    featured_article = Articles.objects.filter(featured_article=True)[:2:-1]
-    
-    context = {"articles":page_obj,"tournaments":tournaments,"featured_article":featured_article}
+    context = {
+        "articles":articles,
+        "tournaments":tournaments,
+        "featured_articles":featured_articles,
+        "featured_tournaments":featured_tournaments,
+        }
     
     return render(request, "blog/articles_list.html", context)
 
