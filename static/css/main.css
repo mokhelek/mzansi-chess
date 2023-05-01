@@ -98,9 +98,10 @@ small{
 .all-articles-cta{
     background-color: #ff9422;
     text-decoration: none !important;
-    color: rgb(69, 69, 69);
+    color: rgb(30, 30, 30) !important;
 }
 
 .all-articles-cta:hover{
     background-color: #ffa13c;
+    
 }

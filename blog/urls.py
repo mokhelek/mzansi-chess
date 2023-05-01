@@ -4,7 +4,7 @@ from .import views
 app_name = 'blog'
 urlpatterns = [
     path("",views.blog,name='blog'),
-    path("read_article/<int:article_id>/",views.read_article,name='read_article'),
+    path("read_article/<slug:slug>/",views.read_article,name='read_article'),
     path("ratings/",views.ratings,name='ratings'),
     
     

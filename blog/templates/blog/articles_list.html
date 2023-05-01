@@ -1,5 +1,17 @@
 {% extends 'blog/base.html' %} {% load static %} {% load bootstrap5 %} {% block content %} {% load read-time %}
 
+
+    <div class=" row ">
+        <div style="background-color: #ffd4a7;width:100%;padding: 1rem;text-align: center;color: rgb(198, 53, 0);" class="col-11">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+                <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+              </svg> &nbsp;
+            Please note that this website is currently under construction
+        </div>
+    </div>
+
+
 <!-- Begin Site Title
 ================================================== -->
 <div id="screensize" class="container">
@@ -39,7 +51,7 @@
                         </div>
                         <div class="col-md-7">
                             <div class="card-body">
-                                <a class="featured-title card-title" href="{% url 'blog:read_article' article.id %}"> {{article.title}} </a>
+                                <a class="featured-title card-title" href="{% url 'blog:read_article' article.slug %}"> {{article.title}} </a>
                                 <div style="background-color: #f99500ce; height: 4px; width: 25%; margin: 0.5rem 0rem 0.5rem 0rem"></div>
                                 <p class="featured-subtitle card-text">{{article.subtitle|truncatechars:100}}</p>
                                 <div style="align-items: center">
@@ -159,7 +171,7 @@
 
                     <div style="height: 250px" class="card-body d-grid">
                         <div>
-                            <a style="font-weight: 500; font-size: 1.2rem" class="card-title" id="article-title" href="{% url 'blog:read_article' article.id %}">{{article.title}}</a>
+                            <a style="font-weight: 500; font-size: 1.2rem" class="card-title" id="article-title" href="{% url 'blog:read_article' article.slug %}">{{article.title}}</a>
                             <p style="position: relative; font-size: 1rem" id="article-subtitle">{{article.subtitle|truncatechars:120}}</p>
                         </div>
                         <div class="d-flex align-items-end">
@@ -171,7 +183,11 @@
             {% endfor %}
         </div>
         <!-- end post -->
-        <a class="btn all-articles-cta " style="border-radius: 0;" href="#"> see more</a>
+        <a class="btn all-articles-cta " style="border-radius: 0;" href="#"> see more&nbsp;
+             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+          </svg>
+        </a>
     </section>
 
     <br /><br /><br /><br />
@@ -258,7 +274,7 @@
                         </svg>
                         <span> Cape Town</span>
                     </li>
-                </div>
+                 </div>
 
                   </div>
                 </div>
@@ -267,9 +283,12 @@
               {% endfor %}
             </div>
             <br>
-            <a class="btn all-articles-cta " style="border-radius: 0;" href="#"> see more</a>
-     
-
+            <a class="btn all-articles-cta " style="border-radius: 0;" href="{% url 'blog:tournaments' %}"> see more&nbsp;
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+               <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+             </svg></a>
+            </div>
+        </div>
     </section>
 </div>
 

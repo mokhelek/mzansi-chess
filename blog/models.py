@@ -7,6 +7,10 @@ from PIL import Image
 from django.core.files import File
 
 from django_quill.fields import QuillField
+from django.urls import reverse
+
+from django.utils.text import slugify
+
 
 # Image compression method
 
@@ -34,8 +38,8 @@ class Articles(models.Model):
     thumbnail = models.ImageField()
     title = models.CharField(max_length=200)
     subtitle = models.TextField(max_length=500, null=True, blank=True)
-    # body = models.TextField()
     body = QuillField()
+    slug = models.SlugField(max_length=300,blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
     featured_article = models.BooleanField(
         null=True, blank=True, default=False)
@@ -48,6 +52,14 @@ class Articles(models.Model):
         self.thumbnail = new_image
         super().save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        return reverse("article", kwargs={"slug":self.title})
+    
+    def save(self,*args,**kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args,**kwargs)
+    
     def __str__(self):
         return f' "{self.title}" by {self.owner}'
 
