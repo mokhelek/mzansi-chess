@@ -22,9 +22,9 @@ def blog(request):
     
     return render(request, "blog/articles_list.html", context)
 
-def read_article(request,article_id):
-    article = Articles.objects.get(id = article_id)
-    articles = Articles.objects.exclude(id=article_id)[0:3:-1]
+def read_article(request,slug):
+    article = Articles.objects.get(slug = slug)
+    articles = Articles.objects.exclude(slug=slug)[0:3:-1]
     context = {"article":article,"articles":articles}
     return render(request,"blog/read_article.html", context)
 
