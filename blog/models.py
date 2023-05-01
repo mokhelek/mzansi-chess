@@ -104,7 +104,7 @@ class Tournaments(models.Model):
     thumbnail_t = models.ImageField(null=True, blank=True)
     name = models.CharField(max_length=200)
     description = QuillField()
-
+    slug = models.SlugField(blank=True, max_length=300)
     starts = models.DateField()
     ends = models.DateField()
     ratingType = models.CharField(max_length=100, choices=ratingType, default=" ")
@@ -113,6 +113,14 @@ class Tournaments(models.Model):
 
     class Meta:
         verbose_name_plural = "tournaments"
+
+    def save(self,*args,**kwargs):
+        # if not self.slug:
+        self.slug = slugify(self.name)
+        super().save(*args,**kwargs)
+
+    # def get_absolute_url(self):
+    #     return reverse("tournament_details", kwargs={"slug":self.slug})
 
     def __str__(self):
         return self.name

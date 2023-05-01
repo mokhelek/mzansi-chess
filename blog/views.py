@@ -39,9 +39,10 @@ def tournaments(request):
     context = {"tournaments":tournaments}
     return render(request,'blog/tournaments.html',context)
 
-def tournament_details(request,tournament_id):
-    tournament = Tournaments.objects.get(id=tournament_id)
-    other_tournaments = Tournaments.objects.exclude(id=tournament_id)[0:4:-1]
+def tournament_details(request,slug_tournament):
+    tournament = Tournaments.objects.get(slug=slug_tournament)
+    print(tournament)
+    other_tournaments = Tournaments.objects.exclude(slug=slug_tournament)[0:4:-1]
     
     context={"tournament":tournament,"other_tournaments":other_tournaments}
     return render(request,"blog/tournament.html",context)
