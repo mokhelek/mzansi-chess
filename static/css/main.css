@@ -108,3 +108,15 @@ small{
     background-color: #ffa13c;
     
 }
+
+/* ************************************ Media Query ********************************* */
+
+@media screen and (max-width:550px){
+    #tourny-img{
+        width:80px !important;
+        height: 60px !important;
+    }
+    .blog-title{
+        font-size: 1.1rem;
+    }
+}
