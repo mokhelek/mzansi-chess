@@ -20,7 +20,7 @@ def blog(request):
         "featured_tournaments":featured_tournaments,
         }
     
-    return render(request, "blog/articles_list.html", context)
+    return render(request, "blog/index.html", context)
 
 def read_article(request,slug):
     article = Articles.objects.get(slug = slug)
@@ -37,7 +37,7 @@ def ratings(request):
 def tournaments(request):
     tournaments = Tournaments.objects.all()[::-1]
     context = {"tournaments":tournaments}
-    return render(request,'blog/tournaments.html',context)
+    return render(request,'blog/tournamentsList.html',context)
 
 def tournament_details(request,slug_tournament):
     tournament = Tournaments.objects.get(slug=slug_tournament)
@@ -46,3 +46,11 @@ def tournament_details(request,slug_tournament):
     
     context={"tournament":tournament,"other_tournaments":other_tournaments}
     return render(request,"blog/tournament.html",context)
+
+def articlesList(request):
+    articles = Articles.objects.all().order_by("-date_posted")
+
+    context = {
+        "articles":articles,
+    }
+    return render(request,"blog/articlesList.html",context)

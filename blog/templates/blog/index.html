@@ -1,6 +1,9 @@
 {% extends 'blog/base.html' %} {% load static %} {% load bootstrap5 %} {% block content %} {% load read-time %}
 
-
+<head>
+    <meta name="description" content="Discover the latest news and updates on South African chess tournaments on our website. Find upcoming chess events so that you stay up-to-date with the Mzansi chess scene. Explore the world of chess in South Africa">
+    <title>Mzansi Chess | South Africa's Chess Platform</title>
+</head>
     <div class=" row ">
         <div style="background-color: #ffd4a7;width:100%;padding: 1rem;text-align: center;color: rgb(198, 53, 0);" class="col-11">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
@@ -135,7 +138,7 @@
                     <hr />
                     {% endfor %}
                     <center>
-                        <a id="tournaments-cta" class="btn btn-outline-primary" href="#">view all tournaments</a>
+                        <a id="tournaments-cta" class="btn btn-outline-primary" href="{% url 'blog:tournaments' %}">view all tournaments</a>
                     </center>
                 </div>
             </div>
@@ -165,7 +168,7 @@
         <!-- begin post -->
         <div class="row">
             {% for article in articles %}
-            <div class="col-md-4">
+            <div class="col-lg-4 col-md-6">
                 <div style="margin-bottom: 1rem" class="card">
                     <img class="card-img-top" id="article-thumbnail" src="{{article.thumbnail.url}}" alt="" />
 
@@ -183,7 +186,7 @@
             {% endfor %}
         </div>
         <!-- end post -->
-        <a class="btn all-articles-cta " style="border-radius: 0;" href="#"> see more&nbsp;
+        <a class="btn all-articles-cta " style="border-radius: 0;" href="{% url 'blog:articlesList' %}"> see more&nbsp;
              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
           </svg>
@@ -202,7 +205,7 @@
             </span>
         </div>
 
-        <br /><br />
+        <br />
 
         <div class="container-fluid blog-container"  >
             <div class="row d-flex justify-content-center">
@@ -215,7 +218,7 @@
                 {% endif %}
                
                   <div class="blog-img" style="margin: 20px;">
-                    <img height="120" src="{{tournament.thumbnail_t.url}}" alt="">
+                    <img height="120" id="tourny-img" src="{{tournament.thumbnail_t.url}}" alt="">
                   </div>
                   <div class="">
                    <a href="{% url 'blog:tournament_details' tournament.slug %}" class="tournament-link">  <h3 class="blog-title" style="margin-left: 2px;margin-top:10px;color:rgb(36, 36, 36)">{{tournament.name}}</h3> </a>
@@ -291,5 +294,9 @@
         </div>
     </section>
 </div>
+
+<footer style="height: 100px;background-color: #000946;margin-top: 5rem;">
+
+</footer>
 
 {% endblock content %}
