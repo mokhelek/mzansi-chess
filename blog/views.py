@@ -31,21 +31,16 @@ def read_article(request,slug):
 def ratings(request):
     player_info = Ratings.objects.all().order_by("position")
     player_info_world = RatingsWorld.objects.all().order_by("position")
-    context = {"player_info":player_info,"player_info_world":player_info_world}
+    context = {
+        "player_info":player_info,
+        "player_info_world":player_info_world
+        }
     return render(request, "blog/ratings.html",context)
 
 def tournaments(request):
     tournaments = Tournaments.objects.all()[::-1]
     context = {"tournaments":tournaments}
     return render(request,'blog/tournamentsList.html',context)
-
-def tournament_details(request,slug_tournament):
-    tournament = Tournaments.objects.get(slug=slug_tournament)
-    print(tournament)
-    other_tournaments = Tournaments.objects.exclude(slug=slug_tournament)[0:4:-1]
-    
-    context={"tournament":tournament,"other_tournaments":other_tournaments}
-    return render(request,"blog/tournament.html",context)
 
 def articlesList(request):
     articles = Articles.objects.all().order_by("-date_posted")
@@ -54,3 +49,13 @@ def articlesList(request):
         "articles":articles,
     }
     return render(request,"blog/articlesList.html",context)
+
+
+def tournament_details(request,slug_tournament):
+    tournament = Tournaments.objects.get(slug=slug_tournament)
+    other_tournaments = Tournaments.objects.exclude(slug=slug_tournament)[0:4:-1]    
+    context={
+        "tournament":tournament,
+        "other_tournaments":other_tournaments}
+    return render(request,"blog/tournament.html",context)
+
