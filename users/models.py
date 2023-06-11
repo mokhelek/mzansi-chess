@@ -4,15 +4,17 @@ from django.contrib.auth.models import User
 #from blogyapp.models import Entry
 
 
-
 # Create your models here.
 class Profile(models.Model):
-    name = models.OneToOneField(User, on_delete=models.CASCADE ,default=1 ) # this has the username inside
-    bio = models.CharField(max_length=300,blank=True, default="Hey There I'm using Bloggy")
-    avatar = models.ImageField(null=True, upload_to="images" )  #default="default.png"
-    about = models.TextField(null=True , blank=True)
-    
-    date_created = models.DateField(auto_now=True)
+    name = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.CharField(max_length=300,blank=True, default=" ")
+    avatar = models.ImageField(null=True, upload_to="images" )  
+    email = models.EmailField()
+    lichessAccount = models.URLField()
+    chessDotCom = models.URLField()
+
+
+    date_created = models.DateField(auto_now_add=True)
     
  
     def __str__(self):
