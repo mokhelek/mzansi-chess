@@ -4,13 +4,35 @@
 {% block content %} 
 {% load read-time %}
 
+<style>
+    .article-post p{
+        color: rgb(60, 60, 60);
+    }
+    @media screen and (max-width:600px) {     
+        .container-fluid{
+            width:100% !important;
+        }
+        .post-title{
+            font-size: 1.5rem !important;
+        }
+        .post-subtitle{
+            font-size: 0.9rem !important;
+        }
+        .article-post p{
+            font-size: 0.9rem;
+        }
+        .article-container{
+            padding-right: 0.7rem !important;
+        }
+    }
 
+</style>
 
 <!-- Begin Article
 ================================================== -->
 <div style="margin-top: 2rem;width: 85%;" class="container-fluid">
     <div class="row">
-        <div style="padding-right: 2rem;" class="col-lg-8">
+        <div  style="padding-right: 2rem;" class="col-md-8 article-container">
 
 
             <div style="margin-top: 1rem;margin-bottom: 0.7rem;" class="d-flex">
@@ -23,10 +45,10 @@
                 </div>
             </div>
             <div style="margin-bottom: 1.5rem;" class="mainheading">
-                <h1 style="font-size: 2rem;color:#343434" >{{article.title}}</h1>
+                <h1 class="post-title" style="font-size: 2rem;color:#343434" >{{article.title}}</h1>
 
                 <div style="padding-left: 1.5rem;border-left: 4px rgb(249, 202, 148) solid;"  class="subtitle">
-                    <p style="color: rgb(97, 97, 97);font-size: 1rem;">{{article.subtitle}}</p>
+                    <p class="post-subtitle" style="color: rgb(97, 97, 97);font-size: 1rem;">{{article.subtitle}}</p>
                 </div>
 
             </div>
@@ -39,7 +61,7 @@
             </div>
         </div>
 
-        <div class="col-lg-4" style="padding: 1.5rem 2rem 1rem 2rem;background-color: rgba(61, 61, 61, 0.046);border-radius: 8px;" >
+        <div class="col-md-4" style="padding: 1.5rem 2rem 1rem 2rem;background-color: rgba(61, 61, 61, 0.046);border-radius: 8px;" >
             <h3 style="font-size: 1.3rem;font-weight: 500;color: #454545;"><span>Next Read</span></h3>
 
             {% for article in articles %}

@@ -1,7 +1,10 @@
-from django.core.paginator import Paginator
-from django.shortcuts import render
+
+from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth.models import User 
+
+from .forms import ArticleForm
+from users.models import Profile
 
 # Create your views here.
 
@@ -58,4 +61,20 @@ def tournament_details(request,slug_tournament):
         "tournament":tournament,
         "other_tournaments":other_tournaments}
     return render(request,"blog/tournament.html",context)
+
+def addArticle(request):
+    authenticatedUser = Profile.objects.get(name = request.user)
+    if request.method != 'POST':
+        addArticleForm = ArticleForm()
+    else:
+        addArticleForm = ArticleForm(request.POST, request.FILES)
+        if addArticleForm.is_valid():
+            newArticle = addArticleForm.save(commit=False)
+            newArticle.owner = authenticatedUser
+            addArticle.save()
+            addArticleForm.save()
+            return redirect("blog:blog")
+
+    context = { "addArticleForm": addArticleForm }
+    return render(request,"blog/add_article.html",context)
 
