@@ -11,6 +11,7 @@ from django.urls import reverse
 
 from django.utils.text import slugify
 
+from users.models import Profile
 
 # Image compression method
 
@@ -34,15 +35,15 @@ titles = (
 
 
 class Articles(models.Model):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
     thumbnail = models.ImageField()
     title = models.CharField(max_length=200)
     subtitle = models.TextField(max_length=500, null=True, blank=True)
     body = QuillField()
     slug = models.SlugField(max_length=300,blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
-    featured_article = models.BooleanField(
-        null=True, blank=True, default=False)
+    featured_article = models.BooleanField(null=True, blank=True, default=False)
+    approved = models.BooleanField(null=True, blank=True, default=False)
 
     class Meta:
         verbose_name_plural = "articles"
@@ -96,7 +97,7 @@ ratingType = (
     (" ", " "),
     ("FIDE Rated", "FIDE Rated"),
     ("Chess SA Rated", "Chess SA Rated"),
-    ("Not Rated", "Not Rated")
+    ("Not Rated", "Not Rated"),
 )
 
 

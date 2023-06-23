@@ -13,5 +13,7 @@ urlpatterns = [
     
     path("tournaments/",views.tournaments,name='tournaments'),
     path("tournament/<slug:slug_tournament>/",views.tournament_details,name='tournament_details'),
+
+    path("add-article", views.addArticle, name = "addArticle")
      
 ]

@@ -1,10 +1,6 @@
 {% extends 'blog/base.html' %} {% load static %} {% load bootstrap5 %} {% block content %}
 
-
-
-<title>
-    Chess tournaments in South Africa
-</title>
+<title>Chess tournaments in South Africa</title>
 
 <div class="container">
     <br />
@@ -15,11 +11,12 @@
         </svg>
         &nbsp; Events & Tournaments
     </span>
-    <hr>
-    <br>
+    <hr />
+    <br />
+
     <div class="container-fluid blog-container">
         <div class="row d-flex justify-content-center">
-            {% for article in tournaments %}
+            {% for tournament in tournaments %}
             <div class="col-12 col-md-10 col-lg-9">
                 {% if forloop.counter == 1 %}
                 <div class="d-flex" style="border-top: 1px solid rgba(110, 110, 110, 0.74); border-bottom: 1px solid rgba(95, 95, 95, 0.829)">
@@ -28,10 +25,10 @@
                         {% endif %}
 
                         <div class="blog-img" style="margin: 20px">
-                            <img height="120" src="{{article.thumbnail_t.url}}" alt="" />
+                            <img height="120" id="tourny-img" src="{{tournament.thumbnail_t.url}}" alt="" />
                         </div>
                         <div class="">
-                            <a href="#" class="article-link"> <h3 class="blog-title" style="margin-left: 2px; margin-top: 10px; color: rgb(36, 36, 36)">{{article.name}}</h3> </a>
+                            <a href="{% url 'blog:tournament_details' tournament.slug %}" class="tournament-link"> <h3 class="blog-title" style="margin-left: 2px; margin-top: 10px; color: rgb(36, 36, 36)">{{tournament.name}}</h3> </a>
 
                             <div id="tournament-details" style="margin-top: 0.3rem">
                                 <li>
@@ -93,7 +90,6 @@
                 </div>
                 {% endfor %}
             </div>
-            <br />
         </div>
     </div>
 </div>

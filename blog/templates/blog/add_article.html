@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %} {% load static %} {% load bootstrap5 %} {% block content %}
+
+<div class="container">
+    <form action="{% url 'blog:addArticle' %}" method="post">
+        {% csrf_token %} 
+        {% bootstrap_form addArticleForm %} 
+
+        {% buttons %}
+        <button class="btn btn-outline-success btn-sm" name="submit">Publish</button>
+        {% endbuttons %}
+    </form>
+</div>
+
+{% endblock content %}
