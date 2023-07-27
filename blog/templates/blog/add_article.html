@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %} {% load static %} {% load bootstrap5 %} {% block content %}
 
 <div style="width:55%;margin-top: 2rem;" class="container">
-    <form action="{% url 'blog:addArticle' %}" method="post">
+    <form action="{% url 'blog:addArticle' %}" method="post" enctype="multipart/form-data" >
         {% csrf_token %} 
         {% bootstrap_form addArticleForm %} 
 

@@ -71,7 +71,7 @@ def addArticle(request):
         if addArticleForm.is_valid():
             newArticle = addArticleForm.save(commit=False)
             newArticle.owner = authenticatedUser
-            addArticle.save()
+            # addArticle.save()
             addArticleForm.save()
             return redirect("blog:blog")
 

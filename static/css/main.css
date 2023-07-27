@@ -49,6 +49,18 @@ small{
     color: #444444;
   
 }
+
+.banner-wrapper{
+    margin-top:2rem;
+    width: 100%;
+}
+.banner-wrapper img{
+    width:100%;
+    height: 17rem;
+}
+
+
+
 /* ************************ Navigation ******************************* */
 #login-btn{
     background-color: #ffb639;
