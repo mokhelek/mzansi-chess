@@ -134,6 +134,7 @@ small{
     }
     .intro-text{
         font-size: 1.1rem;
+        width:99% !important;
     }
 }
 

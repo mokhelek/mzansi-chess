@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth.models import User 
 
-from .forms import ArticleForm
+from .forms import ArticleForm, TournamentForm
 from users.models import Profile
 
 # Create your views here.
@@ -78,3 +78,17 @@ def addArticle(request):
     context = { "addArticleForm": addArticleForm }
     return render(request,"blog/add_article.html",context)
 
+def addTournament(request):
+    authenticatedUser = Profile.objects.get(name = request.user)
+    if request.method != 'POST':
+        addTournamentForm = TournamentForm()
+    else:
+        addTournamentForm = TournamentForm(request.POST, request.FILES)
+        if addTournamentForm.is_valid():
+            newTournament = addTournamentForm.save(commit=False)
+            newTournament.owner = authenticatedUser
+            addTournamentForm.save()
+            return redirect("blog:blog")
+
+    context = { "addTournamentForm": addTournamentForm }
+    return render(request,"blog/add_tournament.html",context)

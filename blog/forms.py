@@ -9,3 +9,9 @@ class ArticleForm(forms.ModelForm):
         model = Articles
         fields = '__all__'
         exclude = ('owner',"slug","approved","featured_article",)
+
+class TournamentForm(forms.ModelForm):
+    class Meta:
+        model = Tournaments
+        fields = '__all__'
+        exclude = ('owner',"slug","featured_tournament",)
