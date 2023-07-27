@@ -132,4 +132,21 @@ small{
     .blog-title{
         font-size: 1.1rem;
     }
+    .intro-text{
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .hero-text img{
+        height: 50px !important;
+    }
+    .hero-text h1{
+        font-size: 3.4rem !important;
+    }
+    .sitetitle{
+        font-size: 1.3rem;
+        letter-spacing: 0.5rem !important;
+    }
+    
 }
