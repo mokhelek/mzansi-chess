@@ -4,6 +4,36 @@ body {
     font-family: "Poppins", sans-serif;
 
 }
+
+.nav-link {
+    font-weight: bold;
+    font-size: 16px;
+    overflow: hidden;
+  }
+  .nav-link span {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s;
+  }
+  .nav-link span:before {
+    position: absolute;
+    top: 100%;
+    content: attr(data-hover);
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .navbar-light .navbar-nav .nav-link:focus,
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: #ffc200;
+    font-weight: bold;
+  }
+  .navbar-light .navbar-nav .nav-link:focus span,
+  .navbar-light .navbar-nav .nav-link:hover span {
+    transform: translateY(-100%);
+  }
+  
+
+  
 li{
     list-style: none;
 }
