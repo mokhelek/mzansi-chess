@@ -1,12 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
 
-body {
-    font-family: "Poppins", sans-serif;
-
+.avatar-home{
+    height: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
-
 .nav-link {
-    font-weight: bold;
     font-size: 16px;
     overflow: hidden;
   }
@@ -39,7 +38,7 @@ li{
 }
 
 h1 {
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 700;
 }
 
@@ -53,7 +52,7 @@ a:hover{
 }
 
 p {
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
 }
 .main-heading {
     margin: 2rem 0rem 2rem 0rem;
@@ -74,7 +73,7 @@ small{
     color: #454545;
 }
 #section-title{
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 1.5rem;
     color: #444444;
   
@@ -107,7 +106,7 @@ small{
 /* ********************************* Tournaments ****************************** */
 .tournament-title {
     color: rgb(34, 34, 34);
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     font-weight: 500;

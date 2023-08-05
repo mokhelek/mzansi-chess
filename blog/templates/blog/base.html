@@ -38,7 +38,6 @@
 
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(10px);
-          /* border-bottom: 1px rgba(231, 231, 231, 0.368) solid; */
           box-shadow: 0 0 6px rgb(188, 188, 188);
       }
       #nav-menu {
@@ -76,11 +75,11 @@
                   </li>
                   &nbsp;&nbsp;&nbsp;
                   <li class="nav-item">
-                      <a style="color: rgb(139, 139, 139)" class="nav-link" href="#">Article</a>
+                      <a style="color: rgb(139, 139, 139)" class="nav-link" href="#">Articles</a>
                   </li>
                   &nbsp;&nbsp;&nbsp;
                   <li class="nav-item">
-                      <a style="color: rgb(139, 139, 139)" class="nav-link" href="#">Tournament </a>
+                      <a style="color: rgb(139, 139, 139)" class="nav-link" href="#">Tournaments </a>
                   </li>
                   &nbsp;&nbsp;&nbsp;
                   <li class="nav-item">
@@ -93,6 +92,78 @@
               </ul>
           </div>
       </div>
+
+
+
+
+      <span class="navbar-text">
+        {% if user.is_authenticated %}
+     
+        <div class="dropdown ">
+            <img class="avatar-home  dropdown-toggle img-fluid" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" src="{{access_profile.avatar.url}}" >
+           
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+              </svg>
+         
+          <ul style="width: 350px;background-color: #fcfcfc;" class="dropdown-menu dropdown-menu-light dropdown-menu-end " aria-labelledby="dropdownMenuButton2">
+            <div class="container-fluid">
+
+              <div class="card card-body">
+
+                  <div  style="margin-bottom: 5px;">
+                    <a class="d-flex " style="text-decoration: none;" href="#">  
+                    <img class="avatar-home" src="{{access_profile.avatar.url}}"> 
+
+                    <span style="font-size: 0.9rem;font-weight: 600;margin-left: 5px;"> 
+                    <h6 style="margin-bottom: 0cm;margin-top: 0cm;font-size: 1.2rem;" > {{access_profile.name}} </h6>
+                    <div class="d-flex">
+                     <p style="color: #9e9e9e;font-size: 0.85rem;" >{{access_profile.email}}</p>
+                    </div>
+                    </span>
+                    </a>
+                    </div>
+
+                    <div class="" style="width: 100%;font-size:0.85rem;margin:0cm">
+
+                    <p style="margin: 0cm;color: rgb(86, 86, 86);"> {{access_profile.bio}}</p>
+                  </div>
+
+              </div>
+              <br>
+              
+
+              <a href="{% url 'blog:addArticle' %}"  class="btn btn-outline-primary btn-sm"  style="margin-bottom: 10px ;"> Write Article</a> <br>
+              <a href="#"  class="btn btn-outline-primary btn-sm"  style="margin-bottom: 10px ;"> Post Tournament</a> <br>
+              
+              <hr>
+                <a href="#" class="btn btn-outline-secondary btn-sm" style="text-decoration: none;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                  <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                  </svg> &nbsp; Sign Out
+                </a>
+          </div>
+
+        </ul>
+      </div>
+
+
+         {% else %}
+
+         <a id="login-btn" class="btn rounded-pill btn-sm" href="{% url 'users:login' %}"> 
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+            <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+          </svg> 
+          sign in
+         </a>
+         {% endif %}
+
+
+      </span>
+
+
   </div>
 </nav>
 
@@ -100,7 +171,7 @@
 
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-  <div style="background-color: #1f3538;height: 60px;" class="offcanvas-header">
+  <div style="background-color: #e4e4e4;height: 60px;" class="offcanvas-header">
    
 
       <div id="media-icons" class="offcanvas-title d-flex" id="offcanvasExampleLabel">
@@ -132,29 +203,30 @@
       </button>
   </div>
 
-  <div style="background-color: #142224" class="offcanvas-body d-flex justify-content-center align-items-center">
-      <div style="padding: 2rem; border: 2px rgb(68, 105, 88) dashed">
-          <ul data-bs-dismiss="offcanvas" >
-              <li class="nav-item">
-                  <a onclick="delayNavigation('/#about')" style="color: white" class="nav-link" > Home<span style="color: rgb(176, 176, 176); font-size: 0.8rem"> ________ who is Katleho? </span> </a>
+  <div style="background-color: #ffffff" class="offcanvas-body d-flex justify-content-center align-items-center">
+      <div style="padding: 2rem;">
+        <center>
+          <div  data-bs-dismiss="offcanvas" >
+              <li style="margin-bottom: 1rem;" class="nav-item">
+                  <a onclick="delayNavigation('/#about')" style="color: #3a3a3a" class="nav-link" > Home</a>
               </li>
-              <li class="nav-item">
-                  <a onclick="delayNavigation('/#skills')" style="color: white" class="nav-link" > Article <span style="color: rgb(176, 176, 176); font-size: 0.8rem"> ________ What can he do?</span> </a>
+              <li style="margin-bottom: 1rem;" class="nav-item">
+                  <a onclick="delayNavigation('/#skills')" style="color: #3a3a3a" class="nav-link" > Article </a>
               </li>
-              <li class="nav-item">
-                  <a onclick="delayNavigation('/#project')" style="color: white" class="nav-link" > Tournament <span style="color: rgb(176, 176, 176); font-size: 0.8rem">________ What has he done?</span> </a>
+              <li style="margin-bottom: 1rem;" class="nav-item">
+                  <a onclick="delayNavigation('/#project')" style="color: #3a3a3a" class="nav-link" > Tournaments </a>
               </li>
-              <li class="nav-item">
-                  <a onclick="delayNavigation('/#blog')" style="color: white" class="nav-link" > Ratings <span style="color: rgb(176, 176, 176); font-size: 0.8rem">________ Check his writings?</span> </a>
+              <li style="margin-bottom: 1rem;" class="nav-item">
+                  <a onclick="delayNavigation('/#blog')" style="color: #3a3a3a" class="nav-link" > Ratings </a>
               </li>
-              <li class="nav-item">
-                  <a onclick="delayNavigation('/#contact')" style="color: white" class="nav-link"> Resources<span style="color: rgb(176, 176, 176); font-size: 0.8rem">________ Want to connect?</span> </a>
+              <li style="margin-bottom: 1rem;" class="nav-item">
+                  <a onclick="delayNavigation('/#contact')" style="color: #3a3a3a" class="nav-link"> Resources</a>
               </li>
-          </ul>
+          </div>
           <br />
           <br />
           <br />
-          <center>
+          
               <a data-bs-dismiss="offcanvas" onclick="delayNavigation('/#contact')" class="btn btn-md" style="background-color: #fff278; color: #282828;border-radius: 0;">Let's Work</a>
           </center>
       </div>
