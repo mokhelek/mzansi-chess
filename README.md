@@ -13,7 +13,8 @@ A platform for South Africa's chess enthusiasts. It is meant for sharing things 
 
 - Chess News Blog
 - Upcoming Tournament Updates
-- Tournament Registration 
+- Tournament Registration
+- Tournaments & Articles publications
 - Player Rankings, national & international
 
 
