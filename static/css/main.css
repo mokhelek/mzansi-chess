@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
 
 .avatar-home{
-    height: 40px;
-    height: 40px;
+    height: 40px !important;
+    width: 40px !important;
+    border: 1px gray solid;
     border-radius: 50%;
 }
 .nav-link {
@@ -165,6 +166,9 @@ small{
         font-size: 1.1rem;
         width:99% !important;
     }
+    .article-card{
+        height: 100% !important;
+    }
 }
 
 @media screen and (max-width:430px) {
@@ -180,3 +184,4 @@ small{
     }
     
 }
+

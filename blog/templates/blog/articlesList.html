@@ -16,13 +16,14 @@
     &nbsp; News & Articles
 </span>
 <hr>
+<br>
     <div class="row">
         {% for article in articles %}
         <div class="col-lg-4 col-md-6">
             <div style="margin-bottom: 1rem" class="card">
                 <img class="card-img-top" id="article-thumbnail" src="{{article.thumbnail.url}}" alt="" />
 
-                <div style="height: 250px" class="card-body d-grid">
+                <div style="height: 250px" class="card-body d-grid article-card">
                     <div>
                         <a style="font-weight: 500; font-size: 1.2rem" class="card-title" id="article-title" href="{% url 'blog:read_article' article.slug %}">{{article.title}}</a>
                         <p style="position: relative; font-size: 1rem" id="article-subtitle">{{article.subtitle|truncatechars:120}}</p>

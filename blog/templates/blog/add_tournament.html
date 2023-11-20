@@ -2,7 +2,7 @@
 
 <div style="margin-top: 2rem;" class="container-fluid">
     <div class="" >
-        <form action="{% url 'blog:addTournament' %}" method="post" enctype="multipart/form-data" >
+        <form action="{% url 'blog:addTournament' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %} 
             {% bootstrap_form addTournamentForm %} 
     
