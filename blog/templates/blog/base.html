@@ -3,6 +3,15 @@
 <html lang="en">
 
 <head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TJ8H2TXX');</script>
+<!-- End Google Tag Manager -->
+
   {% load static %}
   {% load bootstrap5 %}
   {% bootstrap_css %}
@@ -73,7 +82,7 @@
     </div>
 
     <div id="nav-menu" class="d-none d-lg-block">
-      <div style="padding-left: 280px">
+      <div>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a style="color: rgb(139, 139, 139) " class="nav-link" href="{% url 'blog:blog'  %}">Home </a>
@@ -184,8 +193,6 @@
 </nav>
 
 
-
-
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div style="background-color: #e4e4e4;height: 60px;" class="offcanvas-header">
 
@@ -240,6 +247,10 @@
 
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ8H2TXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   {% block content %}
 
   {% endblock content %}
