@@ -1,5 +1,4 @@
-Pipfile
 .venv/
 .vscode/
-
 db.sqlite3
+Pipfile
