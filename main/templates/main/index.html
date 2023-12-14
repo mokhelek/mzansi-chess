@@ -1,4 +1,4 @@
-{% extends 'blog/base.html' %} {% load static %} {% load bootstrap5 %} {% block content %} {% load read-time %}
+{% extends 'main/base.html' %} {% load static %} {% load bootstrap5 %} {% block content %} {% load read-time %}
 
 <head>
     <meta name="description" content="Discover the latest news and updates on South African chess tournaments on our website. Find upcoming chess events so that you stay up-to-date with the Mzansi chess scene. Explore the world of chess in South Africa">
@@ -65,7 +65,7 @@
                     <div class="mb-3 d-flex align-items-center">
                         <img height="80" width="110" src="{{tournament.thumbnail_t.url}}" alt="chess tournament in south africa : {{tournament.name}}" />
                         <div style="margin-left: 0.6rem">
-                            <a class="tournament-title" href="{% url 'blog:tournament_details' tournament.slug %}">{{tournament.name}}</a>
+                            <a class="tournament-title" href="{% url 'main:tournament_details' tournament.slug %}">{{tournament.name}}</a>
                             <div id="tournament-details" style="margin-top: 0.3rem">
                                 <li>
                                     <svg fill="#ff9829" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 610.398 610.398" xml:space="preserve">
@@ -126,7 +126,7 @@
                     <hr />
                     {% endfor %}
                     <center>
-                        <a id="tournaments-cta" class="btn btn-outline-primary" href="{% url 'blog:tournaments' %}">view all tournaments</a>
+                        <a id="tournaments-cta" class="btn btn-outline-primary" href="{% url 'tournaments:tournaments' %}">view all tournaments</a>
                     </center>
                 </div>
             </div>
@@ -205,7 +205,7 @@
                     <img height="120" id="tourny-img" src="{{tournament.thumbnail_t.url}}" alt="">
                   </div>
                   <div class="">
-                   <a href="{% url 'blog:tournament_details' tournament.slug %}" class="tournament-link">  <h3 class="blog-title" style="margin-left: 2px;margin-top:10px;color:rgb(36, 36, 36)">{{tournament.name}}</h3> </a>
+                   <a href="{% url 'tournaments:tournament_details' tournament.slug %}" class="tournament-link">  <h3 class="blog-title" style="margin-left: 2px;margin-top:10px;color:rgb(36, 36, 36)">{{tournament.name}}</h3> </a>
                 
                    <div id="tournament-details" style="margin-top: 0.3rem">
                     <li>
@@ -270,7 +270,7 @@
               {% endfor %}
             </div>
             <br>
-            <a class="btn all-articles-cta " style="border-radius: 0;" href="{% url 'blog:tournaments' %}"> see more&nbsp;
+            <a class="btn all-articles-cta " style="border-radius: 0;" href="{% url 'tournaments:tournaments' %}"> see more&nbsp;
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
              </svg></a>

@@ -73,7 +73,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </button>
 
     <div class="navbar-brand" id="media-icons" style="display: flex">
-      <a id="logo" class="navbar-brand " href="{% url 'blog:blog' %}" style="margin-left: 0.5cm;">
+      <a id="logo" class="navbar-brand " href="{% url 'main:home' %}" style="margin-left: 0.5cm;">
         <img height="45" src="{% static 'images/logo.png' %}" alt="mzansi chess,south africa chess and tournaments">
         <span>
           <!-- <h5> <strong>Mzansi </strong> </h6><h5 style="color: #f97f00"><strong>Chess</strong> </h5> -->
@@ -85,7 +85,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a style="color: rgb(139, 139, 139) " class="nav-link" href="{% url 'blog:blog'  %}">Home </a>
+            <a style="color: rgb(139, 139, 139) " class="nav-link" href="{% url 'main:home'  %}">Home </a>
           </li>
           &nbsp;&nbsp;&nbsp;
           <li class="nav-item">
@@ -93,11 +93,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </li>
           &nbsp;&nbsp;&nbsp;
           <li class="nav-item">
-            <a style="color: rgb(139, 139, 139)" class="nav-link" href="{% url 'blog:tournaments'  %}">Tournaments </a>
+            <a style="color: rgb(139, 139, 139)" class="nav-link" href="{% url 'tournaments:tournaments'  %}">Tournaments </a>
           </li>
           &nbsp;&nbsp;&nbsp;
           <li class="nav-item">
-            <a style="color: rgb(139, 139, 139)" class="nav-link" href="{% url 'blog:ratings'  %}">Ratings </a>
+            <a style="color: rgb(139, 139, 139)" class="nav-link" href="{% url 'main:ratings'  %}">Ratings </a>
           </li>
           &nbsp;&nbsp;&nbsp;
           <li class="nav-item">
@@ -199,7 +199,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <div id="media-icons" class="offcanvas-title d-flex" id="offcanvasExampleLabel">
 
-      <a id="logo" class="navbar-brand " href="{% url 'blog:blog' %}" style="margin-left: 0.5cm;">
+      <a id="logo" class="navbar-brand " href="{% url 'main:home' %}" style="margin-left: 0.5cm;">
         <img height="45" src="{% static 'images/logo.png' %}" alt="mzansi chess,south africa chess and tournaments">
         <span>
           <!-- <h5> <strong>Mzansi </strong> </h6><h5 style="color: #f97f00"><strong>Chess</strong> </h5> -->

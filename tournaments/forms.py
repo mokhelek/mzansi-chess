@@ -4,9 +4,8 @@ from .models import *
 from django_quill.fields import QuillField
 from django_quill.forms import QuillFormField
 
-class ArticleForm(forms.ModelForm):
+class TournamentForm(forms.ModelForm):
     class Meta:
-        model = Articles
+        model = Tournaments
         fields = '__all__'
-        exclude = ('owner',"slug","approved","featured_article",)
-
+        exclude = ('owner',"slug","featured_tournament",)

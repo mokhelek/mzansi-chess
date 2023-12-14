@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import *
 from blog.models import *
 from tournaments.models import *
 from django.contrib.auth.models import User 
@@ -22,4 +23,13 @@ def home(request):
         "featured_tournaments":featured_tournaments,
         }
     
-    return render(request, "blog/index.html", context)
+    return render(request, "main/index.html", context)
+
+def ratings(request):
+    player_info = Ratings.objects.all().order_by("position")
+    player_info_world = RatingsWorld.objects.all().order_by("position")
+    context = {
+        "player_info":player_info,
+        "player_info_world":player_info_world
+        }
+    return render(request, "main/ratings.html",context)
