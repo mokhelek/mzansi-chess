@@ -14,13 +14,13 @@ def tournament_details(request,slug_tournament):
     context={
         "tournament":tournament,
         "other_tournaments":other_tournaments}
-    return render(request,"blog/tournament.html",context)
+    return render(request,"tournaments/tournament.html",context)
 
 
 def tournaments(request):
     tournaments = Tournaments.objects.all()[::-1]
     context = {"tournaments":tournaments}
-    return render(request,'blog/tournamentsList.html',context)
+    return render(request,'tournaments/tournamentsList.html',context)
 
 
 def addTournament(request):
@@ -33,7 +33,7 @@ def addTournament(request):
             newTournament = addTournamentForm.save(commit=False)
             newTournament.owner = authenticatedUser
             addTournamentForm.save()
-            return redirect("blog:blog")
+            return redirect("main:home")
 
     context = { "addTournamentForm": addTournamentForm }
-    return render(request,"blog/add_tournament.html",context)
+    return render(request,"tournaments/add_tournament.html",context)

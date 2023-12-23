@@ -152,9 +152,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <a href="{% url 'blog:addArticle' %}" class="btn btn-outline-primary btn-sm"
               style="margin-bottom: 10px;text-decoration: none;"> Write Article</a> <br>
-            <a href="#" class="btn btn-outline-primary btn-sm" style="margin-bottom: 10px;text-decoration: none;"> Post
+            <a href="{% url 'tournaments:addTournament' %}" class="btn btn-outline-primary btn-sm" style="margin-bottom: 10px;text-decoration: none;"> Post
               Tournament</a> <br>
-
             <hr>
             <a href="{% url 'users:logout' %}" class="btn btn-outline-secondary btn-sm" style="text-decoration: none;">
               <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"

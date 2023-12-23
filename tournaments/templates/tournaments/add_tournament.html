@@ -1,8 +1,8 @@
-{% extends 'blog/base.html' %} {% load static %} {% load bootstrap5 %} {% block content %}
+{% extends 'main/base.html' %} {% load static %} {% load bootstrap5 %} {% block content %}
 
-<div style="margin-top: 2rem;" class="container-fluid">
-    <div class="" >
-        <form action="{% url 'blog:addTournament' %}" method="post" enctype="multipart/form-data">
+<div style="margin-top: 2rem;" class="container-fluid d-flex justify-content-center"> 
+    <div class="col-8" >
+        <form action="{% url 'tournaments:addTournament' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %} 
             {% bootstrap_form addTournamentForm %} 
     

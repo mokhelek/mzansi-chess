@@ -1,4 +1,4 @@
-{% extends "blog/base.html" %}
+{% extends "main/base.html" %}
 {% load static %}
 {% load bootstrap5 %}
 
@@ -60,7 +60,7 @@
                     <button name="submit" class="btn btn-primary">continue</button>
                     {% endbuttons %}
                     <input type="hidden" name="next" 
-                    value="{% url 'blog:blog' %}" />
+                    value="{% url 'main:home' %}" />
                     
                 </div>
             </form>
