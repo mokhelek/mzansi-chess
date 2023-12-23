@@ -65,7 +65,7 @@
                     <div class="mb-3 d-flex align-items-center">
                         <img height="80" width="110" src="{{tournament.thumbnail_t.url}}" alt="chess tournament in south africa : {{tournament.name}}" />
                         <div style="margin-left: 0.6rem">
-                            <a class="tournament-title" href="{% url 'main:tournament_details' tournament.slug %}">{{tournament.name}}</a>
+                            <a class="tournament-title" href="{% url 'tournaments:tournament_details' tournament.slug %}">{{tournament.name}}</a>
                             <div id="tournament-details" style="margin-top: 0.3rem">
                                 <li>
                                     <svg fill="#ff9829" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 610.398 610.398" xml:space="preserve">
