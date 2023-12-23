@@ -1,4 +1,4 @@
-{% extends 'blog/base.html' %} {% load static %} {% load bootstrap5 %} {% block content %}
+{% extends 'main/base.html' %} {% load static %} {% load bootstrap5 %} {% block content %}
 
 <title>Chess tournaments in South Africa</title>
 
@@ -28,7 +28,7 @@
                             <img height="120" id="tourny-img" src="{{tournament.thumbnail_t.url}}" alt="" />
                         </div>
                         <div class="">
-                            <a href="{% url 'blog:tournament_details' tournament.slug %}" class="tournament-link"> <h3 class="blog-title" style="margin-left: 2px; margin-top: 10px; color: rgb(36, 36, 36)">{{tournament.name}}</h3> </a>
+                            <a href="{% url 'tournaments:tournament_details' tournament.slug %}" class="tournament-link"> <h3 class="blog-title" style="margin-left: 2px; margin-top: 10px; color: rgb(36, 36, 36)">{{tournament.name}}</h3> </a>
 
                             <div id="tournament-details" style="margin-top: 0.3rem">
                                 <li>
