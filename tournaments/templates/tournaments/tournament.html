@@ -74,7 +74,7 @@
             <div style="border: 1px rgb(208, 208, 208) solid;padding: 0.7rem;margin-bottom: 1rem;" class="mb-3 d-flex align-items-center">
                 <img height="80" width="110" src="{{i.thumbnail_t.url}}" alt="chess tournament in south africa : {{i.name}}" />
                 <div style="margin-left: 0.6rem">
-                    <a class="tournament-title" href="{% url 'blog:tournament_details' i.slug %}">{{i.name}}</a>
+                    <a class="tournament-title" href="{% url 'tournaments:tournament_details' i.slug %}">{{i.name}}</a>
                     <div id="tournament-details" style="margin-top: 0.3rem">
 
                         <li>
