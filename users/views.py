@@ -26,7 +26,7 @@ def register(request):
             new_user.save()
 
             login(request, new_user)
-            return redirect('blog:blog')
+            return redirect('main:home')
     context = {'form': form}
     return render(request, 'registration/register.html', context)
 
