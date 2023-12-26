@@ -37,10 +37,10 @@
 
             <div style="margin-top: 1rem;margin-bottom: 0.7rem;" class="d-flex">
                 <div>
-                    <img style="height: 50px;width: 50px;border-radius: 50%;border: 1px rgb(133, 166, 255) solid;" src="{{article.thumbnail.url}}" alt="" /> 
+                    <img style="height: 50px;width: 50px;border-radius: 50%;border: 1px rgb(133, 166, 255) solid;" src="{{article.owner.avatar.url}}" alt="" /> 
                 </div>
                 <div style="margin-left: 10px;" >
-                     <span style="color: rgb(52, 52, 52);font-size: 0.9rem;" >@ {{article.owner}}</span> <br>
+                     <span style="color: rgb(52, 52, 52);font-size: 0.9rem;" >@{{article.owner}}</span> <br>
                      <span style="color: gray;font-size: 0.8rem;" >{{article.date_posted|date:"d M Y"}}</span>
                 </div>
             </div>
