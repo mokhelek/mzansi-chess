@@ -2,93 +2,94 @@
 
 <br />
 <div class="container-fluid" style="width: 90%">
-    <br /><br />
+    <br />
     <div class="row">
         <div class="col-lg-8">
-              
-            <div style="margin-top: 1rem;margin-bottom: 0.7rem;" class="d-flex">
+            <div style="margin-top: 1rem; margin-bottom: 0.7rem" class="d-flex">
                 <div>
-                    <img style="height: 50px;width: 50px;border-radius: 50%;border: 1px rgb(133, 166, 255) solid;" src="{{tournament.owner.avatar.url}}" alt="" /> 
+                    <img style="height: 50px; width: 50px; border-radius: 50%; border: 1px rgb(133, 166, 255) solid" src="{{tournament.owner.avatar.url}}" alt="" />
                 </div>
-                <div style="margin-left: 10px;" >
-                     <span style="color: rgb(52, 52, 52);font-size:1rem;" >@{{tournament.owner}}</span> <br>
-                     <span style="color: gray;font-size: 0.8rem;" >Posted {{tournament.date_posted|date:"d M Y"}}</span>
+                <div style="margin-left: 10px">
+                    <span style="color: rgb(52, 52, 52); font-size: 1rem">@{{tournament.owner}}</span> <br />
+                    <span style="color: gray; font-size: 0.8rem">Posted {{tournament.date_posted|date:"d M Y"}}</span>
                 </div>
             </div>
 
-            <h1 style="font-weight: 700;margin-bottom: 0.7rem;font-size:3rem" >{{tournament.name}}</h1>
-                               
-                <div class="container">
-                    <center>
-                        <img style="max-height: 300px;" class="img-fluid tournament-thumb" src="{{tournament.thumbnail_t.url}}" alt="">
-                    </center>
-                </div>
-                <br>
+            <h3 style="font-weight: 700; margin-bottom: 0.7rem; font-size: 2.5rem;margin-bottom: 1rem;">{{tournament.name}}</h3>
 
+            <div class="container">
+                <center>
+                    <img style="max-height: 300px" class="img-fluid tournament-thumb" src="{{tournament.thumbnail_t.url}}" alt="" />
+                </center>
+            </div>
+            <br />
 
-                <div style="width:92%" class="container">
-                    <div class="row">
-                        <div class="col-6">
-                            <h5 style="font-weight: 600;" >When</h5>
-                            <p>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar4-week" viewBox="0 0 16 16">
-                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
-                                    <path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-2 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
-                                  </svg>
-                                {{tournament.starts|date:"d M Y"}}&nbsp; - &nbsp;{{tournament.ends|date:"d M Y"}} </p>
-
-                        </div>
-                        <div class="col-6">
-                            <h5 style="font-weight: 600;" >Where</h5>
-                            <p> 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
-                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                                  </svg>
-                                {{tournament.location}}
-                            </p>
-                        </div>
+            <div style="width: 92%" class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 style="font-weight: 600">When</h5>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar4-week" viewBox="0 0 16 16">
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
+                                <path
+                                    d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-2 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"
+                                />
+                            </svg>
+                            {{tournament.starts|date:"d M Y"}}&nbsp; - &nbsp;{{tournament.ends|date:"d M Y"}}
+                        </p>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-6">
-                            <h5 style="font-weight: 600;" >Time Control</h5>
-                            <p>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
-                                <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483m.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535m-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>
-                                <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z"/>
-                                <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5"/>
-                              </svg>
-                              {{tournament.timeControl}} </p>
-
-                        </div>
-                        <div class="col-6">
-                            <h5 style="font-weight: 600;" >Rating</h5>
-                            <p>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-slash-minus" viewBox="0 0 16 16">
-                                <path d="m1.854 14.854 13-13a.5.5 0 0 0-.708-.708l-13 13a.5.5 0 0 0 .708.708ZM4 1a.5.5 0 0 1 .5.5v2h2a.5.5 0 0 1 0 1h-2v2a.5.5 0 0 1-1 0v-2h-2a.5.5 0 0 1 0-1h2v-2A.5.5 0 0 1 4 1m5 11a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5A.5.5 0 0 1 9 12"/>
-                              </svg>
-                              {{tournament.ratingType}}</p>
-                        </div>
+                    <div class="col-md-6">
+                        <h5 style="font-weight: 600">Where</h5>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>
+                            {{tournament.location}}
+                        </p>
                     </div>
                 </div>
-                <hr>
-                <div class="container">
-                    <p style="color:gray">{{tournament.description.html|safe}}</p>
+                <br />
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 style="font-weight: 600">Time Control</h5>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
+                                <path
+                                    d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483m.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535m-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"
+                                />
+                                <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z" />
+                                <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5" />
+                            </svg>
+                            {{tournament.timeControl}}
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 style="font-weight: 600">Rating</h5>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-slash-minus" viewBox="0 0 16 16">
+                                <path d="m1.854 14.854 13-13a.5.5 0 0 0-.708-.708l-13 13a.5.5 0 0 0 .708.708ZM4 1a.5.5 0 0 1 .5.5v2h2a.5.5 0 0 1 0 1h-2v2a.5.5 0 0 1-1 0v-2h-2a.5.5 0 0 1 0-1h2v-2A.5.5 0 0 1 4 1m5 11a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5A.5.5 0 0 1 9 12" />
+                            </svg>
+                            {{tournament.ratingType}}
+                        </p>
+                    </div>
                 </div>
-           
+            </div>
+            <hr />
+            <div class="container">
+                <p style="color: gray">{{tournament.description.html|safe}}</p>
+            </div>
         </div>
 
-        <div class="col-lg-4"  style="padding: 1.5rem 2rem 1rem 2rem;background-color: rgba(61, 61, 61, 0.046);border-radius: 8px;"  >
-            <h3 style="font-size: 1.3rem;font-weight: 500;color: #454545;margin-bottom: 1rem;"><span>More Tournaments</span></h3>
+        <div class="col-lg-4" style="padding: 1.5rem 2rem 1rem 2rem; background-color: rgba(61, 61, 61, 0.046); border-radius: 8px">
+            <h3 style="font-size: 1.3rem; font-weight: 500; color: #454545; margin-bottom: 1rem"><span>More Tournaments</span></h3>
 
             {% for i in other_tournaments %}
-            <div style="border: 1px rgb(208, 208, 208) solid;padding: 0.7rem;margin-bottom: 1rem;" class="mb-3 d-flex align-items-center">
+            <div style="border: 1px rgb(208, 208, 208) solid; padding: 0.7rem; margin-bottom: 1rem" class="mb-3 d-flex align-items-center">
                 <img height="80" width="110" src="{{i.thumbnail_t.url}}" alt="chess tournament in south africa : {{i.name}}" />
                 <div style="margin-left: 0.6rem">
                     <a class="tournament-title" href="{% url 'tournaments:tournament_details' i.slug %}">{{i.name}}</a>
                     <div id="tournament-details" style="margin-top: 0.3rem">
-
                         <li>
                             <svg fill="#ff9829" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 610.398 610.398" xml:space="preserve">
                                 <g>
@@ -96,39 +97,50 @@
                                         <path
                                             d="M159.567,0h-15.329c-1.956,0-3.811,0.411-5.608,0.995c-8.979,2.912-15.616,12.498-15.616,23.997v10.552v27.009v14.052
                                         c0,2.611,0.435,5.078,1.066,7.44c2.702,10.146,10.653,17.552,20.158,17.552h15.329c11.724,0,21.224-11.188,21.224-24.992V62.553
-                                        V35.544V24.992C180.791,11.188,171.291,0,159.567,0z" />
+                                        V35.544V24.992C180.791,11.188,171.291,0,159.567,0z"
+                                        />
                                         <path
                                             d="M461.288,0h-15.329c-11.724,0-21.224,11.188-21.224,24.992v10.552v27.009v14.052c0,13.804,9.5,24.992,21.224,24.992
-                                        h15.329c11.724,0,21.224-11.188,21.224-24.992V62.553V35.544V24.992C482.507,11.188,473.007,0,461.288,0z" />
+                                        h15.329c11.724,0,21.224-11.188,21.224-24.992V62.553V35.544V24.992C482.507,11.188,473.007,0,461.288,0z"
+                                        />
                                         <path
                                             d="M539.586,62.553h-37.954v14.052c0,24.327-18.102,44.117-40.349,44.117h-15.329c-22.247,0-40.349-19.79-40.349-44.117
                                         V62.553H199.916v14.052c0,24.327-18.102,44.117-40.349,44.117h-15.329c-22.248,0-40.349-19.79-40.349-44.117V62.553H70.818
                                         c-21.066,0-38.15,16.017-38.15,35.764v476.318c0,19.784,17.083,35.764,38.15,35.764h468.763c21.085,0,38.149-15.984,38.149-35.764
-                                        V98.322C577.735,78.575,560.671,62.553,539.586,62.553z M527.757,557.9l-446.502-0.172V173.717h446.502V557.9z" />
+                                        V98.322C577.735,78.575,560.671,62.553,539.586,62.553z M527.757,557.9l-446.502-0.172V173.717h446.502V557.9z"
+                                        />
                                         <path
                                             d="M353.017,266.258h117.428c10.193,0,18.437-10.179,18.437-22.759s-8.248-22.759-18.437-22.759H353.017
-                                        c-10.193,0-18.437,10.179-18.437,22.759C334.58,256.074,342.823,266.258,353.017,266.258z" />
+                                        c-10.193,0-18.437,10.179-18.437,22.759C334.58,256.074,342.823,266.258,353.017,266.258z"
+                                        />
                                         <path
                                             d="M353.017,348.467h117.428c10.193,0,18.437-10.179,18.437-22.759c0-12.579-8.248-22.758-18.437-22.758H353.017
-                                        c-10.193,0-18.437,10.179-18.437,22.758C334.58,338.288,342.823,348.467,353.017,348.467z" />
+                                        c-10.193,0-18.437,10.179-18.437,22.758C334.58,338.288,342.823,348.467,353.017,348.467z"
+                                        />
                                         <path
                                             d="M353.017,430.676h117.428c10.193,0,18.437-10.18,18.437-22.759s-8.248-22.759-18.437-22.759H353.017
-                                        c-10.193,0-18.437,10.18-18.437,22.759S342.823,430.676,353.017,430.676z" />
+                                        c-10.193,0-18.437,10.18-18.437,22.759S342.823,430.676,353.017,430.676z"
+                                        />
                                         <path
                                             d="M353.017,512.89h117.428c10.193,0,18.437-10.18,18.437-22.759c0-12.58-8.248-22.759-18.437-22.759H353.017
-                                        c-10.193,0-18.437,10.179-18.437,22.759C334.58,502.71,342.823,512.89,353.017,512.89z" />
+                                        c-10.193,0-18.437,10.179-18.437,22.759C334.58,502.71,342.823,512.89,353.017,512.89z"
+                                        />
                                         <path
                                             d="M145.032,266.258H262.46c10.193,0,18.436-10.179,18.436-22.759s-8.248-22.759-18.436-22.759H145.032
-                                        c-10.194,0-18.437,10.179-18.437,22.759C126.596,256.074,134.838,266.258,145.032,266.258z" />
+                                        c-10.194,0-18.437,10.179-18.437,22.759C126.596,256.074,134.838,266.258,145.032,266.258z"
+                                        />
                                         <path
                                             d="M145.032,348.467H262.46c10.193,0,18.436-10.179,18.436-22.759c0-12.579-8.248-22.758-18.436-22.758H145.032
-                                        c-10.194,0-18.437,10.179-18.437,22.758C126.596,338.288,134.838,348.467,145.032,348.467z" />
+                                        c-10.194,0-18.437,10.179-18.437,22.758C126.596,338.288,134.838,348.467,145.032,348.467z"
+                                        />
                                         <path
                                             d="M145.032,430.676H262.46c10.193,0,18.436-10.18,18.436-22.759s-8.248-22.759-18.436-22.759H145.032
-                                        c-10.194,0-18.437,10.18-18.437,22.759S134.838,430.676,145.032,430.676z" />
+                                        c-10.194,0-18.437,10.18-18.437,22.759S134.838,430.676,145.032,430.676z"
+                                        />
                                         <path
                                             d="M145.032,512.89H262.46c10.193,0,18.436-10.18,18.436-22.759c0-12.58-8.248-22.759-18.436-22.759H145.032
-                                        c-10.194,0-18.437,10.179-18.437,22.759C126.596,502.71,134.838,512.89,145.032,512.89z" />
+                                        c-10.194,0-18.437,10.179-18.437,22.759C126.596,502.71,134.838,512.89,145.032,512.89z"
+                                        />
                                     </g>
                                 </g>
                             </svg>
